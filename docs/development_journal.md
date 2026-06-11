@@ -63,3 +63,28 @@ Successfully launched the first working version of CivicBridge with a basic home
 
 ### Outcome
 Successfully built a homepage using HTML templates and CSS styling.
+
+## Day 3 - Multi-Page Website
+
+### Tasks Completed
+- Created Report Issue page
+- Created View Issues page
+- Created About page
+- Added Flask routes for each page
+- Built navigation bar
+- Connected pages using hyperlinks
+- Tested navigation across the application
+
+### Concepts Learned
+- Flask routes
+- URL mapping
+- Anchor tags (<a>)
+- Navigation bars
+- Multi-page website structure
+
+### Challenges Faced
+- Navigation bar initially did not appear on all pages
+- Resolved by verifying templates and refreshing the application
+
+### Outcome
+CivicBridge evolved from a single-page site into a multi-page web application with working navigation
