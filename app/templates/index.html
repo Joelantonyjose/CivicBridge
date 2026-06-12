@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CivicBridge</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <nav>
-    <a href="/">Home</a> |
-    <a href="/report">Report Issue</a> |
-    <a href="/issues">View Issues</a> |
-    <a href="/about">About</a>
-    </nav>
+{% extends "base.html" %}
 
-    <hr>
-    <h1>CivicBridge</h1>
+{% block content %}
 
-    <p>Connecting citizens and local representatives.</p>
+<h1>Welcome to CivicBridge</h1>
 
-    <hr>
+<p>
+    Connecting citizens and local representatives.
+</p>
 
-    <h2>What can you do?</h2>
+<p>
+    <strong>Mission:</strong> Report. Track. Resolve.
+</p>
 
-    <ul>
-        <li>Report civic issues</li>
-        <li>Track complaint status</li>
-        <li>View issues in your area</li>
-        <li>Engage with local representatives</li>
-    </ul>
-
-    <hr>
-    <p><strong>Mission:</strong> Report. Track. Resolve.</p>
-</body>
-</html>
+{% endblock %}

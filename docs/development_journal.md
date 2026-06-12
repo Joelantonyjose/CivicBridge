@@ -88,3 +88,23 @@ Successfully built a homepage using HTML templates and CSS styling.
 
 ### Outcome
 CivicBridge evolved from a single-page site into a multi-page web application with working navigation
+
+
+## Day 4 - Template Inheritance
+
+### Tasks Completed
+- Created base.html
+- Moved navigation bar to base template
+- Linked CSS through base template
+- Converted all pages to inherit from base.html
+- Removed duplicate navigation code
+- Tested template inheritance
+
+### Concepts Learned
+- Jinja template inheritance
+- {% extends %}
+- {% block %}
+- DRY (Don't Repeat Yourself) principle
+
+### Outcome
+CivicBridge now uses a professional template structure where shared layout elements are maintained in a single file.
