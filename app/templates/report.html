@@ -4,8 +4,22 @@
 
 <h1>Report an Issue</h1>
 
-<p>
-    This page will allow citizens to report civic problems.
-</p>
+<form method="POST">
+
+    <label>Your Name:</label><br>
+    <input type="text" name="name"><br><br>
+
+    <label>Place/Location:</label><br>
+    <input type="text" name="location"><br><br>
+
+    <label>Issue Title:</label>
+    <input type="text" name="title"><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description" rows="5" cols="40"></textarea><br><br>
+
+    <button type="submit">Submit Report</button>
+
+</form>
 
 {% endblock %}

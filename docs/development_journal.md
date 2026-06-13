@@ -108,3 +108,28 @@ CivicBridge evolved from a single-page site into a multi-page web application wi
 
 ### Outcome
 CivicBridge now uses a professional template structure where shared layout elements are maintained in a single file.
+
+## Day 5 - Forms and User Input
+
+### Tasks Completed
+- Created Report Issue form
+- Added Name field
+- Added Location field
+- Added Issue Title field
+- Added Description field
+- Added Submit button
+- Configured form to use POST method
+- Imported request from Flask
+- Processed form submissions using request.form
+- Displayed submitted data back to the user
+
+### Concepts Learned
+- HTML Forms
+- Input fields
+- Textarea
+- GET vs POST requests
+- Flask request object
+- request.form
+
+### Outcome
+CivicBridge can now collect and process user-submitted issue reports.

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app= Flask(__name__)
 
@@ -6,8 +6,23 @@ app= Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/report")
+@app.route("/report", methods=["GET","POST"])
 def report():
+    if request.method == "POST":
+        name = request.form["name"]
+        location = request.form["location"]
+        title = request.form["title"]
+        description = request.form["description"]
+
+        return f"""
+        <h1>Report Received</h1>
+
+        <p><strong>Name:</strong> {name}</p>
+        <p><strong>Location:</strong> {location}</p>
+        <p><strong>Title:</strong> {title}</p>
+        <p><strong>Description:</strong> {description}</p>
+        """
+       
     return render_template("report.html")
 
 @app.route("/issues")
