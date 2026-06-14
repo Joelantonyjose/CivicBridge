@@ -133,3 +133,24 @@ CivicBridge now uses a professional template structure where shared layout eleme
 
 ### Outcome
 CivicBridge can now collect and process user-submitted issue reports.
+
+## Day 6 - Displaying Reports
+
+### Tasks Completed
+- Created reports list for temporary storage
+- Created report dictionary structure
+- Stored submitted reports using append()
+- Passed reports data to issues template
+- Used Jinja for-loop to display reports
+- Displayed submitted issues on View Issues page
+
+### Concepts Learned
+- Python Lists
+- Python Dictionaries
+- append()
+- render_template variables
+- Jinja loops
+- Dynamic content rendering
+
+### Outcome
+Users can submit issues and view them on the View Issues page during the current application session.
