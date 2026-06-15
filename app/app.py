@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app= Flask(__name__)
 
@@ -25,14 +25,7 @@ def report():
         reports.append(report)
         print(reports)
 
-        return f"""
-        <h1>Report Received</h1>
-
-        <p><strong>Name:</strong> {name}</p>
-        <p><strong>Location:</strong> {location}</p>
-        <p><strong>Title:</strong> {title}</p>
-        <p><strong>Description:</strong> {description}</p>
-        """
+        return redirect(url_for("issues"))
        
     return render_template("report.html")
 

@@ -10,3 +10,14 @@ h1 {
 p {
     line-height: 1.6;
 }
+
+.issue-card {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+.issue-card h3 {
+    margin-top: 0;
+}

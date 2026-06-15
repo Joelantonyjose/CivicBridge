@@ -154,3 +154,23 @@ CivicBridge can now collect and process user-submitted issue reports.
 
 ### Outcome
 Users can submit issues and view them on the View Issues page during the current application session.
+
+## Day 7 - User Experience Improvements
+
+### Tasks Completed
+- Added redirect after form submission
+- Learned redirect() and url_for()
+- Implemented Post/Redirect/Get pattern
+- Styled issue reports using CSS cards
+- Added Jinja if/else condition
+- Displayed message when no reports exist
+
+### Concepts Learned
+- redirect()
+- url_for()
+- CSS classes
+- Jinja if statements
+- Conditional rendering
+
+### Outcome
+Users are redirected to the Issues page after submission, reports are displayed in styled cards, and the application handles empty states gracefully.

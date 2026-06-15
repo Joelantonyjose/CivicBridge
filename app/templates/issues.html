@@ -3,21 +3,26 @@
 {% block content %}
 
 <h1>Reported Issues</h1>
+{% if reports %}
 
-{% for report in reports %}
+    {% for report in reports %}
 
-<div>
-    <h3>{{ report.title }}</h3>
+    <div class="issue-card">
+        <h3>{{ report.title }}</h3>
 
-    <p><strong>Name:</strong> {{ report.name }}</p>
+        <p><strong>Name:</strong> {{ report.name }}</p>
 
-    <p><strong>Location:</strong> {{ report.location }}</p>
+        <p><strong>Location:</strong> {{ report.location }}</p>
 
-    <p><strong>Description:</strong> {{ report.description }}</p>
+        <p><strong>Description:</strong> {{ report.description }}</p>
 
-    <hr>
-</div>
+    </div>
 
-{% endfor %}
+    {% endfor %}
+
+{% else %}
+    <p>No issues have been reported yet.</p>
+
+{% endif %}    
 
 {% endblock %}
