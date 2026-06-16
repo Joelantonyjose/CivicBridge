@@ -174,3 +174,29 @@ Users can submit issues and view them on the View Issues page during the current
 
 ### Outcome
 Users are redirected to the Issues page after submission, reports are displayed in styled cards, and the application handles empty states gracefully.
+
+## Day 8 - SQLite Database Integration
+
+### Tasks Completed
+- Created SQLite database (civicbridge.db)
+- Created reports table
+- Connected Flask application to SQLite
+- Saved submitted reports into the database
+- Retrieved reports from the database
+- Displayed database records on the Issues page
+- Verified reports persist after restarting Flask
+
+### Concepts Learned
+- SQLite
+- SQL
+- CREATE TABLE
+- INSERT INTO
+- SELECT
+- PRIMARY KEY
+- AUTOINCREMENT
+- fetchall()
+- commit()
+- database connections
+
+### Outcome
+CivicBridge now stores reports permanently using SQLite instead of an in-memory Python list.

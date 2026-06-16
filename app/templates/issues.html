@@ -8,13 +8,13 @@
     {% for report in reports %}
 
     <div class="issue-card">
-        <h3>{{ report.title }}</h3>
+        <h3>{{ report[3] }}</h3>
 
-        <p><strong>Name:</strong> {{ report.name }}</p>
+        <p><strong>Name:</strong> {{ report[1] }}</p>
 
-        <p><strong>Location:</strong> {{ report.location }}</p>
+        <p><strong>Location:</strong> {{ report[2] }}</p>
 
-        <p><strong>Description:</strong> {{ report.description }}</p>
+        <p><strong>Description:</strong> {{ report[4] }}</p>
 
     </div>
 

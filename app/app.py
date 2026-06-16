@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 
 app= Flask(__name__)
 
@@ -16,21 +17,28 @@ def report():
         title = request.form["title"]
         description = request.form["description"]
 
-        report={
-            "name":name,
-            "location":location,
-            "title":title,
-            "description":description
-        }
-        reports.append(report)
-        print(reports)
-
+        conn=sqlite3.connect("civicbridge.db")
+        cursor=conn.cursor()
+        cursor.execute(
+            "INSERT INTO reports (name, location, title, description) VALUES (?, ?, ?, ?)",
+            (name, location, title, description)
+        )
+        conn.commit()
+        conn.close()
+        
         return redirect(url_for("issues"))
        
     return render_template("report.html")
 
 @app.route("/issues")
 def issues():
+    conn = sqlite3.connect("civicbridge.db")
+    cursor=conn.cursor()
+    cursor.execute("SELECT * FROM reports")
+    reports=cursor.fetchall()
+    print(reports)
+
+    conn.close()
     return render_template("issues.html", reports=reports)
 
 @app.route("/about")
