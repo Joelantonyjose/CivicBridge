@@ -200,3 +200,23 @@ Users are redirected to the Issues page after submission, reports are displayed 
 
 ### Outcome
 CivicBridge now stores reports permanently using SQLite instead of an in-memory Python list.
+
+## Day 9 - Delete Issue Feature
+
+### Tasks Completed
+- Added Delete link for each issue
+- Created dynamic delete route
+- Used report ID to identify records
+- Deleted reports from SQLite database
+- Redirected users back to the Issues page
+
+### Concepts Learned
+- Dynamic routes
+- Route parameters
+- DELETE FROM
+- WHERE clause
+- SQL placeholders (?)
+- Database record deletion
+
+### Outcome
+Users can now remove issues from CivicBridge. Deleted reports are permanently removed from the SQLite database.

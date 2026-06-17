@@ -45,5 +45,20 @@ def issues():
 def about():
     return render_template("about.html")
 
+@app.route("/delete/<int:id>")
+def delete(id):
+    conn = sqlite3.connect("civicbridge.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM reports WHERE id = ?",
+        (id,)
+    )
+
+    conn.commit()
+    conn.close()
+    
+    return redirect(url_for("issues"))
+
 if __name__=="__main__":
     app.run(debug=True)
