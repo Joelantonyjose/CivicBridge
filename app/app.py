@@ -20,8 +20,8 @@ def report():
         conn=sqlite3.connect("civicbridge.db")
         cursor=conn.cursor()
         cursor.execute(
-            "INSERT INTO reports (name, location, title, description) VALUES (?, ?, ?, ?)",
-            (name, location, title, description)
+            "INSERT INTO reports (name, location, title, description, status) VALUES (?, ?, ?, ?, ?)",
+            (name, location, title, description, "Pending")
         )
         conn.commit()
         conn.close()

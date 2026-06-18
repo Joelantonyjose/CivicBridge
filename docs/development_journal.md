@@ -220,3 +220,23 @@ CivicBridge now stores reports permanently using SQLite instead of an in-memory 
 
 ### Outcome
 Users can now remove issues from CivicBridge. Deleted reports are permanently removed from the SQLite database.
+
+
+## Day 10 - Status Tracking Setup
+
+### Tasks Completed
+- Added status column to the reports table
+- Learned ALTER TABLE and ADD COLUMN
+- Updated report insertion logic
+- Set default status to "Pending"
+- Displayed status on the Issues page
+
+### Concepts Learned
+- ALTER TABLE
+- ADD COLUMN
+- Database schema updates
+- NULL values in SQLite
+- None values in Python
+
+### Outcome
+CivicBridge can now track the status of issues. New reports are automatically marked as Pending.
