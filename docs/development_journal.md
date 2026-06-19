@@ -240,3 +240,23 @@ Users can now remove issues from CivicBridge. Deleted reports are permanently re
 
 ### Outcome
 CivicBridge can now track the status of issues. New reports are automatically marked as Pending.
+
+
+## Day 11 - Resolve Issue Feature
+
+### Tasks Completed
+- Created resolve route
+- Learned SQL UPDATE
+- Updated report status
+- Redirected after update
+- Tested status change from Pending to Resolved
+
+### Concepts Learned
+- UPDATE
+- SET
+- WHERE
+- Database updates
+- CRUD operations
+
+### Outcome
+Users can now mark issues as Resolved without deleting them.

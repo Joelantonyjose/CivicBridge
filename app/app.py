@@ -60,5 +60,20 @@ def delete(id):
     
     return redirect(url_for("issues"))
 
+@app.route("/resolve/<int:id>")
+def resolve(id):
+    conn=sqlite3.connect("civicbridge.db")
+    cursor=conn.cursor()
+
+    cursor.execute(
+        "UPDATE reports SET status=? WHERE id=?",
+        ("Resolved",id)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("issues"))
+
 if __name__=="__main__":
     app.run(debug=True)
