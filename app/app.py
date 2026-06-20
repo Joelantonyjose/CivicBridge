@@ -34,9 +34,18 @@ def report():
 def issues():
     conn = sqlite3.connect("civicbridge.db")
     cursor=conn.cursor()
-    cursor.execute("SELECT * FROM reports")
+    
+    status=request.args.get("status")
+
+    if status:
+        cursor.execute(
+            "SELECT * FROM reports WHERE status=?",
+            (status,)
+        )
+    else:
+        cursor.execute("SELECT * from reports")    
+    
     reports=cursor.fetchall()
-    print(reports)
 
     conn.close()
     return render_template("issues.html", reports=reports)

@@ -260,3 +260,28 @@ CivicBridge can now track the status of issues. New reports are automatically ma
 
 ### Outcome
 Users can now mark issues as Resolved without deleting them.
+
+
+## Day 12 - Resolve Feature and Status Filtering
+
+### Tasks Completed
+- Added a Resolve link for each issue
+- Created a resolve route using a dynamic URL parameter
+- Updated issue status from Pending to Resolved
+- Redirected users back to the Issues page after resolving
+- Added conditional rendering for the Resolve button
+- Displayed "Resolved ✅" for resolved issues
+- Added filter links (All / Pending / Resolved)
+- Implemented status-based filtering using query parameters
+
+### Concepts Learned
+- SQL UPDATE
+- SET and WHERE clauses
+- Query Parameters
+- request.args.get()
+- Jinja if-else conditionals
+- Conditional rendering
+- Database filtering
+
+### Outcome
+Users can now mark issues as Resolved instead of deleting them. The Issues page displays the Resolve button only for Pending issues and allows filtering reports by status (All, Pending, Resolved). CivicBridge now supports complete CRUD operations and basic issue management workflows.

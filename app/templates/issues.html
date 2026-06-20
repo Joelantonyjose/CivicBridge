@@ -3,6 +3,11 @@
 {% block content %}
 
 <h1>Reported Issues</h1>
+<p>
+    <a href="/issues">All</a>
+    <a href="/issues?status=Pending">Pending</a>
+    <a href="/issues?status=Resolved">Resolved</a>
+</p>
 {% if reports %}
 
     {% for report in reports %}
@@ -14,14 +19,21 @@
 
         <p><strong>Location:</strong> {{ report[2] }}</p>
 
-        <p><strong>Status:</strong> {{ report[5] }}</p>
+        <p>
+            <strong>Status:</strong>
+            {{ report[5] if report[5] else "Pending" }}
+        </p>
 
         <p><strong>Description:</strong> {{ report[4] }}</p>
 
         <p><strong>ID:</strong> {{ report[0] }}</p>
 
-        <a href="/resolve/{{ report[0] }}">Resolve</a>
-
+        {% if report[5]=="Pending" %}
+            <a href="/resolve/{{ report[0] }}">Resolve</a>
+        {% else %}
+            <strong>Resolved ✅</strong>
+        {% endif %}
+              
         <a href="/delete/{{ report[0] }}">Delete</a>
 
     </div>
