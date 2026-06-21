@@ -8,6 +8,12 @@
     <a href="/issues?status=Pending">Pending</a>
     <a href="/issues?status=Resolved">Resolved</a>
 </p>
+
+<form method="get" action="/issues">
+    <input type="text" name="search" placeholder="Search issues">
+    <button type="submit">Search</button>
+</form>
+
 {% if reports %}
 
     {% for report in reports %}

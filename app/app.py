@@ -36,12 +36,22 @@ def issues():
     cursor=conn.cursor()
     
     status=request.args.get("status")
+    search=request.args.get("search")
+    print(search)
 
-    if status:
+    if search:
+        cursor.execute(
+            "SELECT * FROM reports WHERE title LIKE ?",
+            (f"%{search}%",)
+        )
+    
+    
+    elif status:
         cursor.execute(
             "SELECT * FROM reports WHERE status=?",
             (status,)
         )
+
     else:
         cursor.execute("SELECT * from reports")    
     

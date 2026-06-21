@@ -285,3 +285,26 @@ Users can now mark issues as Resolved without deleting them.
 
 ### Outcome
 Users can now mark issues as Resolved instead of deleting them. The Issues page displays the Resolve button only for Pending issues and allows filtering reports by status (All, Pending, Resolved). CivicBridge now supports complete CRUD operations and basic issue management workflows.
+
+
+## Day 13 - Search Feature
+
+### Tasks Completed
+- Added a search form to the Issues page
+- Learned how GET forms work
+- Retrieved search input using query parameters
+- Implemented search functionality using request.args.get()
+- Learned SQL LIKE for partial matching
+- Enabled searching reports by title
+- Tested search functionality successfully
+
+### Concepts Learned
+- GET requests
+- Query Parameters
+- request.args.get()
+- SQL LIKE
+- Wildcards (%)
+- Search functionality in Flask
+
+### Outcome
+Users can now search for issues by title. The application filters reports and displays only matching results, making it easier to find specific issues when many reports exist.
