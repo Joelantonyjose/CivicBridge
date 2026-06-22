@@ -37,7 +37,7 @@ def issues():
     
     status=request.args.get("status")
     search=request.args.get("search")
-    print(search)
+    
 
     if search:
         cursor.execute(
@@ -93,6 +93,37 @@ def resolve(id):
     conn.close()
 
     return redirect(url_for("issues"))
+
+@app.route("/edit/<int:id>", methods=["GET","POST"])
+def edit(id):
+    conn=sqlite3.connect("civicbridge.db")
+    cursor=conn.cursor()
+
+    if request.method=="POST":
+        title=request.form["title"]
+        description=request.form["description"]
+
+        cursor.execute(
+            """
+            UPDATE reports
+            SET title=?,description=?
+            WHERE id=?
+            """,
+            (title,description,id)
+        )
+
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for("issues"))
+
+    cursor.execute(
+        "SELECT * FROM reports WHERE id = ?",
+        (id,)
+    )
+    report=cursor.fetchone()
+    conn.close()
+    return render_template("edit.html",report=report)
 
 if __name__=="__main__":
     app.run(debug=True)

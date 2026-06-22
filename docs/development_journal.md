@@ -308,3 +308,29 @@ Users can now mark issues as Resolved instead of deleting them. The Issues page 
 
 ### Outcome
 Users can now search for issues by title. The application filters reports and displays only matching results, making it easier to find specific issues when many reports exist.
+
+
+## Day 14 - Edit Issue Feature
+
+### Tasks Completed
+- Added Edit links to each issue
+- Created a dynamic edit route using report IDs
+- Retrieved a specific report from the database
+- Created a dedicated edit page (edit.html)
+- Pre-filled form fields with existing report data
+- Learned GET and POST request handling
+- Retrieved submitted form data using request.form
+- Updated report title and description in the database
+- Redirected users back to the Issues page after saving changes
+
+### Concepts Learned
+- Dynamic Routes
+- GET vs POST Requests
+- request.method
+- request.form
+- SQL UPDATE
+- Pre-filled Forms
+- Redirects
+
+### Outcome
+Users can now edit previously submitted issues. The application fetches existing report data, displays it in a form, and updates the database when changes are submitted.
