@@ -12,10 +12,13 @@ def home():
 @app.route("/report", methods=["GET","POST"])
 def report():
     if request.method == "POST":
-        name = request.form["name"]
-        location = request.form["location"]
-        title = request.form["title"]
-        description = request.form["description"]
+        name = request.form["name"].strip()
+        location = request.form["location"].strip()
+        title = request.form["title"].strip()
+        description = request.form["description"].strip()
+
+        if not name or not location or not title or not description:
+            return "All fields are required!"
 
         conn=sqlite3.connect("civicbridge.db")
         cursor=conn.cursor()

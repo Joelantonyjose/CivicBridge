@@ -334,3 +334,23 @@ Users can now search for issues by title. The application filters reports and di
 
 ### Outcome
 Users can now edit previously submitted issues. The application fetches existing report data, displays it in a form, and updates the database when changes are submitted.
+
+
+## Day 15 - Basic Validation and Data Cleaning
+
+### Tasks Completed
+- Added validation for empty form fields
+- Prevented reports from being saved when required fields are missing
+- Learned how `if` conditions can be used for validation
+- Improved validation using `.strip()`
+- Tested submissions containing only spaces
+
+### Concepts Learned
+- Input Validation
+- Logical Operators (`or`)
+- Empty String Checks
+- String `.strip()`
+- Data Cleaning
+
+### Outcome
+Users can no longer submit reports with empty fields. Inputs containing only spaces are also rejected, improving data quality in the database.
