@@ -354,3 +354,24 @@ Users can now edit previously submitted issues. The application fetches existing
 
 ### Outcome
 Users can no longer submit reports with empty fields. Inputs containing only spaces are also rejected, improving data quality in the database.
+
+
+## Day 16 - Flash Messages and User-Friendly Validation
+
+### Tasks Completed
+- Added Flask secret key
+- Learned Flask flash messages
+- Replaced plain validation response with flash()
+- Redirected users back to the report form after validation failures
+- Displayed flashed messages in report.html
+- Improved user experience for form validation
+
+### Concepts Learned
+- Flask Secret Key
+- flash()
+- Redirects
+- get_flashed_messages()
+- User-friendly validation feedback
+
+### Outcome
+Users now remain on the report page when validation fails and receive a clear error message. This creates a smoother and more professional user experience.

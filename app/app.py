@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,flash
 import sqlite3
 
 app= Flask(__name__)
+app.secret_key="civicbridge_secret"
 
 reports = []
 
@@ -18,7 +19,8 @@ def report():
         description = request.form["description"].strip()
 
         if not name or not location or not title or not description:
-            return "All fields are required!"
+            flash("All fields are required!")
+            return redirect(url_for("report"))
 
         conn=sqlite3.connect("civicbridge.db")
         cursor=conn.cursor()
