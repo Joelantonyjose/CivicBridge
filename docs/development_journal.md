@@ -375,3 +375,22 @@ Users can no longer submit reports with empty fields. Inputs containing only spa
 
 ### Outcome
 Users now remain on the report page when validation fails and receive a clear error message. This creates a smoother and more professional user experience.
+
+
+## Day 17 - UI Enhancement for Validation Messages
+
+### Tasks Completed
+- Added a CSS class to flash messages
+- Styled validation messages using CSS
+- Improved visibility of error feedback
+- Learned how HTML classes connect with CSS selectors
+
+### Concepts Learned
+- HTML class attribute
+- CSS class selectors
+- padding
+- margin
+- border
+
+### Outcome
+Validation messages are now displayed inside a styled alert box, making them easier for users to notice and understand.
