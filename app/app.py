@@ -127,6 +127,17 @@ def edit(id):
         (id,)
     )
     report=cursor.fetchone()
+
+    if report is None:
+        conn.close()
+        flash("Report not found.")
+        return redirect(url_for("issues"))
+    
+    if report[5]=="Resolved":
+        conn.close()
+        flash("This report has already been resolved and cannot be edited.")
+        return redirect(url_for("issues"))
+    
     conn.close()
     return render_template("edit.html",report=report)
 

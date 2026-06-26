@@ -394,3 +394,26 @@ Users now remain on the report page when validation fails and receive a clear er
 
 ### Outcome
 Validation messages are now displayed inside a styled alert box, making them easier for users to notice and understand.
+
+
+## Day 18 - End-to-End Testing and Application Refinement
+
+### Tasks Completed
+- Performed end-to-end testing of the complete CivicBridge workflow.
+- Verified report creation, search functionality, status filtering, editing, resolving, and deletion.
+- Modified the interface so only pending reports display the **Edit** option.
+- Prevented resolved reports from being edited through backend validation.
+- Moved flash message handling to `base.html` so all pages can display flash messages.
+- Added validation to handle invalid or deleted report IDs gracefully.
+- Improved the application's robustness by enforcing business rules on both the frontend and backend.
+
+### Concepts Learned
+- End-to-End Testing
+- Business Rules
+- Defensive Programming
+- DRY (Don't Repeat Yourself) Principle
+- Backend Validation
+- Handling Missing Database Records
+
+### Outcome
+Successfully verified the complete CivicBridge workflow from report creation to deletion. Improved the application's reliability by enforcing business rules, preventing unauthorized edits, handling invalid URLs safely, and making flash messages available across the entire application.

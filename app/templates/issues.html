@@ -36,11 +36,11 @@
 
         {% if report[5]=="Pending" %}
             <a href="/resolve/{{ report[0] }}">Resolve</a>
+            <a href="/edit/{{ report[0]}}">Edit</a>
         {% else %}
             <strong>Resolved ✅</strong>
         {% endif %}
               
-        <a href="/edit/{{ report[0]}}">Edit</a>
         <a href="/delete/{{ report[0] }}">Delete</a>
 
     </div>
