@@ -420,3 +420,113 @@ Successfully verified the complete CivicBridge workflow from report creation to 
 
 
 
+#  CivicBridge Development Journal – Day 19
+
+**Date:** 25 July 2026
+
+## Objective
+
+Begin the CivicBridge v2.0 UI redesign by establishing a modern design foundation inspired by the selected Canva template.
+
+## Work Completed
+
+- Backed up the original stylesheet by creating `style_v1.css`.
+- Redesigned the application's base layout by updating `base.html`.
+- Added the Google Fonts **Poppins** font for a modern and consistent typography.
+- Created a new horizontal navigation bar using Flexbox.
+- Added a professional footer that will be shared across all pages.
+- Designed and implemented a new homepage hero section.
+- Added:
+  - Main headline
+  - Project description
+  - "Report an Issue" button
+  - "View Issues" button
+- Styled the hero section using a two-column responsive layout.
+- Established the official green-and-white design language for CivicBridge v2.0.
+- Built the initial CSS framework that will be reused throughout the application.
+
+## Testing
+
+- Verified that the redesigned navigation bar displays correctly.
+- Confirmed that the hero section loads successfully.
+- Tested the navigation links to ensure they remain functional.
+- Verified that the new stylesheet is applied correctly.
+- Identified that the View Issues page temporarily lost its previous spacing due to the new global stylesheet. This was expected and scheduled for redesign in a future session.
+
+## Files Modified
+
+- `app/templates/base.html`
+- `app/templates/index.html`
+- `app/static/style.css`
+
+## Files Added
+
+- `app/static/style_v1.css`
+
+## Challenges
+
+- The previous styling of the View Issues page was affected after introducing the new global CSS. This will be addressed during the dedicated redesign of that page in a future development session.
+
+## Next Steps
+
+- Design the Community Impact section.
+- Create the How CivicBridge Works section.
+- Continue redesigning the homepage using reusable UI components.
+- Improve the overall visual consistency across all pages.
+
+## Reflection
+
+Today's session marked the beginning of CivicBridge v2.0. Rather than focusing on new backend features, the objective was to establish a modern, clean, and professional user interface. The new navigation, hero section, typography, and colour palette provide a strong foundation for the upcoming redesign of the remaining pages.
+
+
+
+#  CivicBridge Development Journal – Day 20
+
+**Date:** 30 July 2026
+
+## Objective
+Continue the CivicBridge v2.0 UI redesign by expanding the homepage with modern, informative sections while maintaining the new green-and-white design language.
+
+## Work Completed
+
+- Added the **Community Impact** section below the hero section.
+- Created three statistics cards:
+  - Total Reports
+  - Pending Reports
+  - Resolved Reports
+- Styled the statistics cards with rounded corners, soft shadows, hover animations, and a consistent green-and-white theme.
+- Added the **How CivicBridge Works** section.
+- Designed three workflow cards representing the CivicBridge process:
+  - 📝 Report
+  - 📍 Track
+  - ✅ Resolve
+- Applied a consistent UI design by reusing the same card style and spacing across the homepage.
+- Continued following the Canva-inspired design language established for CivicBridge v2.0.
+
+## Testing
+
+- Verified that the Community Impact section displays correctly.
+- Confirmed that all three statistics cards render properly.
+- Verified that the How CivicBridge Works section displays correctly.
+- Tested hover animations on both statistics cards and workflow cards.
+- Confirmed that the homepage layout remains clean and functional after the additions.
+
+## Files Modified
+
+- `app/templates/index.html`
+- `app/static/style.css`
+
+## Challenges
+
+- No major issues encountered during today's development.
+
+## Next Steps
+
+- Add the Recent Issues section to the homepage.
+- Replace placeholder statistics with live data from the SQLite database.
+- Improve responsiveness for mobile and tablet devices.
+- Continue redesigning the remaining pages using the new CivicBridge v2.0 design language.
+
+## Reflection
+
+Today's work focused on enhancing the homepage by introducing informative and visually appealing sections. The addition of the Community Impact and How CivicBridge Works sections strengthens the user experience while maintaining a clean, modern, and consistent interface. The homepage now better communicates CivicBridge's purpose and workflow, bringing the project another step closer to a production-quality web application.
