@@ -530,3 +530,66 @@ Continue the CivicBridge v2.0 UI redesign by expanding the homepage with modern,
 ## Reflection
 
 Today's work focused on enhancing the homepage by introducing informative and visually appealing sections. The addition of the Community Impact and How CivicBridge Works sections strengthens the user experience while maintaining a clean, modern, and consistent interface. The homepage now better communicates CivicBridge's purpose and workflow, bringing the project another step closer to a production-quality web application.
+
+
+# 🌉 CivicBridge Development Journal – Day 21
+
+**Date:** 31 July 2026
+
+## Objective
+
+Enhance the CivicBridge v2.0 homepage by integrating live database content, replacing placeholder data with dynamic information retrieved from the SQLite database.
+
+## Work Completed
+
+- Added the **Recent Issues** section to the homepage.
+- Designed modern issue cards displaying:
+  - Issue title
+  - Location
+  - Status badge (Pending/Resolved)
+- Styled the Recent Issues section to match the existing green-and-white design language.
+- Modified the Flask `home()` route to retrieve the latest three reports from the SQLite database.
+- Implemented an SQL query to fetch the three most recent reports using:
+  ```sql
+  SELECT * FROM reports
+  ORDER BY id DESC
+  LIMIT 3;
+  ```
+- Passed the retrieved reports from Flask to the Jinja template.
+- Replaced the placeholder Recent Issues cards with dynamically generated content using Jinja templating.
+- Implemented SQL `COUNT(*)` queries to calculate:
+  - Total Reports
+  - Pending Reports
+  - Resolved Reports
+- Connected the Community Impact cards to live database statistics.
+- Successfully converted the homepage into a dynamic, database-driven interface.
+
+## Testing
+
+- Verified that the latest three reports are displayed correctly on the homepage.
+- Confirmed that the Community Impact statistics update automatically based on the database.
+- Tested Pending and Resolved status badges.
+- Identified and resolved HTML structure issues caused by incorrect closing tags (`</div>`), restoring the proper card layout.
+- Confirmed that all homepage sections display correctly after integrating dynamic content.
+
+## Files Modified
+
+- `app/app.py`
+- `app/templates/index.html`
+- `app/static/style.css`
+
+## Challenges
+
+- Encountered HTML layout issues due to missing closing tags while updating the Community Impact section.
+- Corrected the HTML structure and verified that the layout returned to its intended design.
+
+## Next Steps
+
+- Redesign the View Issues page using the CivicBridge v2.0 design language.
+- Improve the Report Issue page.
+- Make the homepage responsive for mobile and tablet devices.
+- Continue refining animations and overall UI consistency.
+
+## Reflection
+
+Today's development session marked an important milestone in CivicBridge v2.0. The homepage is no longer dependent on placeholder content; it now displays live statistics and the latest reported issues directly from the SQLite database. Integrating the backend with the redesigned frontend significantly improves both functionality and user experience, bringing CivicBridge closer to a production-quality full-stack web application.

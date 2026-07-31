@@ -8,7 +8,40 @@ reports = []
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+
+    conn = sqlite3.connect("civicbridge.db")
+    cursor = conn.cursor()
+
+    # Recent Issues
+    cursor.execute("""
+        SELECT *
+        FROM reports
+        ORDER BY id DESC
+        LIMIT 3
+    """)
+    recent_reports = cursor.fetchall()
+
+    # Total Reports
+    cursor.execute("SELECT COUNT(*) FROM reports")
+    total_reports = cursor.fetchone()[0]
+
+    # Pending Reports
+    cursor.execute("SELECT COUNT(*) FROM reports WHERE status='Pending'")
+    pending_reports = cursor.fetchone()[0]
+
+    # Resolved Reports
+    cursor.execute("SELECT COUNT(*) FROM reports WHERE status='Resolved'")
+    resolved_reports = cursor.fetchone()[0]
+
+    conn.close()
+
+    return render_template(
+        "index.html",
+        recent_reports=recent_reports,
+        total_reports=total_reports,
+        pending_reports=pending_reports,
+        resolved_reports=resolved_reports
+    )
 
 @app.route("/report", methods=["GET","POST"])
 def report():
