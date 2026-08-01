@@ -593,3 +593,62 @@ Enhance the CivicBridge v2.0 homepage by integrating live database content, repl
 ## Reflection
 
 Today's development session marked an important milestone in CivicBridge v2.0. The homepage is no longer dependent on placeholder content; it now displays live statistics and the latest reported issues directly from the SQLite database. Integrating the backend with the redesigned frontend significantly improves both functionality and user experience, bringing CivicBridge closer to a production-quality full-stack web application.
+
+
+# 🌉 CivicBridge Development Journal – Day 22
+
+**Date:** 1 August 2026
+
+## Objective
+
+Redesign the View Issues page to match the CivicBridge v2.0 interface while preserving all existing functionality.
+
+## Work Completed
+
+- Redesigned the View Issues page with a modern layout.
+- Added a professional page header with a short description.
+- Redesigned the filter section using styled buttons for:
+  - All
+  - Pending
+  - Resolved
+- Improved the search bar styling to match the CivicBridge theme.
+- Enhanced the search experience by preserving the user's search query after submission.
+- Redesigned each issue into a modern information card.
+- Added status badges for Pending and Resolved issues.
+- Improved the presentation of:
+  - Reporter Name
+  - Location
+  - Description
+- Styled the Resolve, Edit, and Delete buttons with distinct colors.
+- Centered the issue list using a dedicated container layout.
+- Added a clean empty-state design for situations where no reports match the search or filter.
+
+## Testing
+
+- Verified that filtering by status works correctly.
+- Tested search functionality.
+- Confirmed that the search value remains visible after submitting the search.
+- Verified that Resolve, Edit, and Delete actions continue to function correctly.
+- Confirmed that the redesigned layout displays correctly.
+
+## Files Modified
+
+- app/templates/issues.html
+- app/static/style.css
+
+## Challenges
+
+- Adjusted the HTML structure to improve spacing and maintain a consistent layout.
+- Refined the page without affecting existing backend functionality.
+
+## Next Steps
+
+- Redesign the Report Issue page.
+- Improve the Edit Issue page.
+- Enhance the About page.
+- Continue making the application responsive for mobile devices.
+
+## Reflection
+
+Today's work significantly improved one of the application's primary pages. The View Issues page now presents information in a cleaner, more organized, and visually appealing manner while maintaining all existing functionality. These improvements contribute to a more professional and user-friendly CivicBridge experience.
+

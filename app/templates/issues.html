@@ -2,54 +2,123 @@
 
 {% block content %}
 
-<h1>Reported Issues</h1>
-<p>
-    <a href="/issues">All</a>
-    <a href="/issues?status=Pending">Pending</a>
-    <a href="/issues?status=Resolved">Resolved</a>
-</p>
+<section class="issues-header">
 
-<form method="get" action="/issues">
-    <input type="text" name="search" placeholder="Search issues">
-    <button type="submit">Search</button>
-</form>
+    <h1>Reported Issues</h1>
+
+    <p>
+        Browse, search, and manage all civic issues reported by the community.
+    </p>
+
+    <div class="filter-bar">
+
+        <div class="filter-links">
+
+            <a href="/issues">All</a>
+
+            <a href="/issues?status=Pending">Pending</a>
+
+            <a href="/issues?status=Resolved">Resolved</a>
+
+        </div>
+
+        <form method="get" action="/issues" class="search-form">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search issues..."
+                value="{{ request.args.get('search', '') }}"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<div class="issues-container">
 
 {% if reports %}
 
     {% for report in reports %}
 
     <div class="issue-card">
-        <h3>{{ report[3] }}</h3>
 
-        <p><strong>Name:</strong> {{ report[1] }}</p>
+        <div class="issue-top">
+
+            <h3>{{ report[3] }}</h3>
+
+            {% if report[5] == "Resolved" %}
+
+                <span class="status resolved">
+                    Resolved
+                </span>
+
+            {% else %}
+
+                <span class="status pending">
+                    Pending
+                </span>
+
+            {% endif %}
+
+        </div>
+
+        <p><strong>Reported By:</strong> {{ report[1] }}</p>
 
         <p><strong>Location:</strong> {{ report[2] }}</p>
 
-        <p>
-            <strong>Status:</strong>
-            {{ report[5] if report[5] else "Pending" }}
-        </p>
+        <p><strong>Description:</strong></p>
 
-        <p><strong>Description:</strong> {{ report[4] }}</p>
+        <p>{{ report[4] }}</p>
 
-        <p><strong>ID:</strong> {{ report[0] }}</p>
+        <div class="issue-actions">
 
-        {% if report[5]=="Pending" %}
-            <a href="/resolve/{{ report[0] }}">Resolve</a>
-            <a href="/edit/{{ report[0]}}">Edit</a>
-        {% else %}
-            <strong>Resolved ✅</strong>
-        {% endif %}
-              
-        <a href="/delete/{{ report[0] }}">Delete</a>
+            {% if report[5] == "Pending" %}
+
+                <a href="/resolve/{{ report[0] }}" class="btn-resolve">
+                    Resolve
+                </a>
+
+                <a href="/edit/{{ report[0] }}" class="btn-edit">
+                    Edit
+                </a>
+
+            {% endif %}
+
+            <a href="/delete/{{ report[0] }}" class="btn-delete">
+                Delete
+            </a>
+
+        </div>
 
     </div>
 
     {% endfor %}
 
 {% else %}
-    <p>No issues have been reported yet.</p>
 
-{% endif %}    
+    <div class="empty-state">
+
+        <h2>No Issues Found</h2>
+
+        <p>
+            No reports match your search or filter.
+        </p>
+
+        <a href="/report" class="btn-resolve">
+            Report an Issue
+        </a>
+
+    </div>
+
+{% endif %}
+
+</div>
 
 {% endblock %}
