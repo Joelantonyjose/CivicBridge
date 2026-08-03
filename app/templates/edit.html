@@ -1,11 +1,56 @@
-<h1>Edit Issue</h1>
+{% extends "base.html" %}
 
-<form method="POST">
-    <input type="text" name="title" value="{{report[3]}}">
-    <br><br>
-    
-    <textarea name="description">{{report[4]}}</textarea>
-    <br><br>
+{% block content %}
 
-    <button type="submit">Save Changes</button>
-</form>
+<section class="report-header">
+
+    <h1>Edit Issue</h1>
+
+    <p>
+        Update the issue details and save your changes.
+    </p>
+
+</section>
+
+<div class="report-container">
+
+    <form method="POST" class="report-form">
+
+        <div class="form-group">
+
+            <label for="title">Issue Title</label>
+
+            <input
+                id="title"
+                type="text"
+                name="title"
+                value="{{ report[3] }}"
+                required
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="description">Description</label>
+
+            <textarea
+                id="description"
+                name="description"
+                rows="6"
+                required
+            >{{ report[4] }}</textarea>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+
+            Save Changes
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

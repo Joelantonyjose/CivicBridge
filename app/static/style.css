@@ -666,3 +666,142 @@ footer{
     margin-bottom:25px;
 
 }
+
+/* Report Page */
+
+.report-header{
+
+    text-align:center;
+
+    padding:60px 20px 30px;
+
+}
+
+.report-header h1{
+
+    font-size:42px;
+
+    color:#2e7d32;
+
+    margin-bottom:15px;
+
+}
+
+.report-header p{
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+/* Form Container */
+
+.report-container{
+
+    max-width:700px;
+
+    margin:0 auto 60px;
+
+    padding:20px;
+
+}
+
+.report-form{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+}
+
+/* Form Fields */
+
+.form-group{
+
+    margin-bottom:25px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ccc;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+    box-sizing:border-box;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    outline:none;
+
+    border-color:#2e7d32;
+
+    box-shadow:0 0 8px rgba(46,125,50,0.2);
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+}
+
+/* Submit Button */
+
+.submit-btn{
+
+    width:100%;
+
+    background:#2e7d32;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    font-size:17px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.submit-btn:hover{
+
+    background:#256428;
+    transform:translateY(-2px);
+
+}

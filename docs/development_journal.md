@@ -652,3 +652,55 @@ Redesign the View Issues page to match the CivicBridge v2.0 interface while pres
 
 Today's work significantly improved one of the application's primary pages. The View Issues page now presents information in a cleaner, more organized, and visually appealing manner while maintaining all existing functionality. These improvements contribute to a more professional and user-friendly CivicBridge experience.
 
+
+# 🌉 CivicBridge Development Journal – Day 23
+
+**Date:** 3 August 2026
+
+## Objective
+
+Redesign the Report Issue and Edit Issue pages to match the CivicBridge v2.0 interface, creating a consistent and modern user experience across the application.
+
+## Work Completed
+
+- Redesigned the Report Issue page with a modern, card-based layout.
+- Added a professional page header with a brief description.
+- Improved the report form using organized form groups.
+- Added descriptive placeholders to all input fields.
+- Applied HTML validation using the `required` attribute.
+- Styled the form with rounded input fields and improved spacing.
+- Added focus effects to input fields for better user experience.
+- Designed a full-width green Submit Report button with hover effects.
+- Redesigned the Edit Issue page using the same layout and styling as the Report Issue page.
+- Updated the Edit Issue form to display existing issue details in a clean and consistent interface.
+- Reused existing CSS components to maintain a uniform design across the application.
+
+## Testing
+
+- Verified that new issues can be submitted successfully.
+- Confirmed that form validation prevents empty submissions.
+- Tested editing existing issues and verified that updates are saved correctly.
+- Confirmed that all redesigned pages display correctly without affecting backend functionality.
+- Verified visual consistency with the Homepage and View Issues pages.
+
+## Files Modified
+
+- `app/templates/report.html`
+- `app/templates/edit.html`
+- `app/static/style.css`
+
+## Challenges
+
+- Redesigned the forms while preserving the existing Flask routes and backend logic.
+- Ensured the Edit Issue page reused the same design components as the Report Issue page to maintain consistency.
+
+## Next Steps
+
+- Implement flash messages for successful actions such as reporting, editing, resolving, and deleting issues.
+- Redesign the About page.
+- Improve responsiveness for mobile and tablet devices.
+- Continue enhancing the overall user experience.
+
+## Reflection
+
+Today's development session focused on improving the application's data entry and editing experience. Both the Report Issue and Edit Issue pages now share a consistent visual identity with the rest of CivicBridge v2.0. Reusing the same design components helped maintain consistency while keeping the code organized and easier to maintain.
