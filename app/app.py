@@ -63,6 +63,8 @@ def report():
         )
         conn.commit()
         conn.close()
+
+        flash("✅ Issue reported successfully!")
         
         return redirect(url_for("issues"))
        
@@ -114,7 +116,8 @@ def delete(id):
 
     conn.commit()
     conn.close()
-    
+
+    flash("🗑️ Issue deleted successfully!")
     return redirect(url_for("issues"))
 
 @app.route("/resolve/<int:id>")
@@ -129,6 +132,8 @@ def resolve(id):
 
     conn.commit()
     conn.close()
+
+    flash("✅ Issue marked as resolved!")
 
     return redirect(url_for("issues"))
 
@@ -152,6 +157,8 @@ def edit(id):
 
         conn.commit()
         conn.close()
+
+        flash("✏️ Issue updated successfully!")
 
         return redirect(url_for("issues"))
 

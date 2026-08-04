@@ -704,3 +704,53 @@ Redesign the Report Issue and Edit Issue pages to match the CivicBridge v2.0 int
 ## Reflection
 
 Today's development session focused on improving the application's data entry and editing experience. Both the Report Issue and Edit Issue pages now share a consistent visual identity with the rest of CivicBridge v2.0. Reusing the same design components helped maintain consistency while keeping the code organized and easier to maintain.
+
+# 🌉 CivicBridge Development Journal – Day 24
+
+**Date:** 4 August 2026
+
+## Objective
+
+Improve the user experience by implementing flash messages to provide feedback after important user actions.
+
+## Work Completed
+
+- Implemented Flask flash messages across the application.
+- Added success notifications for:
+  - Reporting a new issue.
+  - Updating an existing issue.
+  - Resolving an issue.
+  - Deleting an issue.
+- Updated the base template to display flash messages globally.
+- Designed a modern notification component using the CivicBridge green-and-white theme.
+- Reused the same notification system for validation and error messages.
+
+## Testing
+
+- Verified that a success message appears after reporting an issue.
+- Verified that editing an issue displays a confirmation message.
+- Confirmed that resolving an issue shows a success notification.
+- Confirmed that deleting an issue displays a confirmation message.
+- Verified that validation and existing flash messages continue to work correctly.
+
+## Files Modified
+
+- app.py
+- app/templates/base.html
+- app/static/style.css
+
+## Challenges
+
+- Integrated Flask's flash message system without affecting existing application logic.
+- Created a reusable notification component that works across all pages.
+
+## Next Steps
+
+- Redesign the About page.
+- Improve mobile responsiveness.
+- Add icons and visual enhancements.
+- Continue preparing CivicBridge for deployment.
+
+## Reflection
+
+Today's improvements focused on user experience rather than adding new functionality. Flash messages provide immediate feedback after user actions, making the application feel more interactive and professional while keeping the interface consistent with CivicBridge v2.
