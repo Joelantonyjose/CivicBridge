@@ -754,3 +754,52 @@ Improve the user experience by implementing flash messages to provide feedback a
 ## Reflection
 
 Today's improvements focused on user experience rather than adding new functionality. Flash messages provide immediate feedback after user actions, making the application feel more interactive and professional while keeping the interface consistent with CivicBridge v2.
+
+
+# 🌉 CivicBridge Development Journal – Day 25
+
+**Date:** 5 August 2026
+
+## Objective
+
+Redesign the About page to match the CivicBridge v2.0 interface and provide users with a clear overview of the application's purpose, features, and technology stack.
+
+## Work Completed
+
+- Redesigned the About page with a modern, card-based layout.
+- Added a professional hero section with the CivicBridge introduction.
+- Created a dedicated Mission section explaining the purpose of the application.
+- Added a Key Features section highlighting the application's core functionality.
+- Added a Technologies Used section listing the development stack.
+- Implemented a responsive grid layout for the information cards.
+- Styled the cards with rounded corners, shadows, and hover effects.
+- Maintained the green-and-white CivicBridge theme for visual consistency.
+
+## Testing
+
+- Verified that the About page loads correctly.
+- Confirmed that all cards display properly.
+- Tested the responsive grid layout.
+- Verified that the hover animations work as expected.
+- Confirmed consistency with the other redesigned pages.
+
+## Files Modified
+
+- app/templates/about.html
+- app/static/style.css
+
+## Challenges
+
+- Structured the information into clear sections while keeping the page clean and easy to read.
+- Reused the existing design language to maintain consistency across the application.
+
+## Next Steps
+
+- Improve mobile responsiveness across the application.
+- Refine the navigation experience.
+- Add additional UI enhancements where necessary.
+- Prepare CivicBridge for deployment and portfolio presentation.
+
+## Reflection
+
+Today's work completed the redesign of the application's primary pages. The About page now provides users with a professional overview of CivicBridge while maintaining a consistent visual identity throughout the application.

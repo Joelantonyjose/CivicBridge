@@ -837,3 +837,109 @@ footer{
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
 
 }
+
+/* About Page */
+
+.about-header{
+
+    text-align:center;
+
+    padding:60px 20px 30px;
+
+}
+
+.about-header h1{
+
+    font-size:42px;
+
+    color:#2e7d32;
+
+    margin-bottom:15px;
+
+}
+
+.about-header p{
+
+    max-width:750px;
+
+    margin:0 auto;
+
+    font-size:18px;
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+/* About Layout */
+
+.about-container{
+
+    max-width:1000px;
+
+    margin:0 auto 60px;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+/* Cards */
+
+.about-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    border-left:6px solid #2e7d32;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.about-card h2{
+
+    color:#2e7d32;
+
+    margin-bottom:20px;
+
+}
+
+.about-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+}
+
+.about-card ul{
+
+    padding-left:20px;
+
+}
+
+.about-card li{
+
+    margin-bottom:12px;
+
+    color:#555;
+
+}
