@@ -803,3 +803,59 @@ Redesign the About page to match the CivicBridge v2.0 interface and provide user
 ## Reflection
 
 Today's work completed the redesign of the application's primary pages. The About page now provides users with a professional overview of CivicBridge while maintaining a consistent visual identity throughout the application.
+
+
+# 🌉 CivicBridge Development Journal – Day 26
+
+**Date:** 19 August 2026
+
+## Objective
+
+Improve the responsiveness of the CivicBridge application to ensure that the user interface works properly across mobile, tablet, and desktop screen sizes.
+
+## Work Completed
+
+- Added responsive CSS using a media query for screens with a maximum width of 768px.
+- Updated the navigation bar to adapt to smaller screens.
+- Allowed navigation links to wrap and remain properly aligned on mobile devices.
+- Adjusted the homepage hero section for smaller screen sizes.
+- Reduced heading and paragraph sizes for better mobile readability.
+- Improved the Community Impact statistics section for mobile screens.
+- Adjusted statistic cards to fit comfortably within smaller screen widths.
+- Updated the How It Works section to stack cards vertically on mobile devices.
+- Improved the Recent Issues section layout for smaller screens.
+- Adjusted the footer text and spacing for mobile devices.
+- Made the View Issues page responsive, including the page header, filters, and search form.
+- Updated issue cards so that titles, status indicators, and action buttons adapt properly on smaller screens.
+- Improved the responsiveness of the Report Issue and Edit Issue forms.
+- Adjusted the About page layout so that information cards stack properly on mobile devices.
+
+## Testing
+
+- Tested the application using Chrome's responsive device mode.
+- Tested the mobile layout at a width of 375px.
+- Tested the responsive layout at a width of 768px.
+- Checked the application on the normal desktop layout.
+- Verified that no major overflowing or overlapping issues were present.
+- Confirmed that the responsive styles did not affect the desktop layout.
+
+## Files Modified
+
+- `app/static/style.css`
+
+## Challenges
+
+- Learned how to use Chrome Developer Tools and Device Toolbar to test responsive layouts.
+- Ensured that responsive styles were placed inside the media query without affecting the existing desktop design.
+- Adjusted multiple sections of the application individually to improve the overall mobile experience.
+
+## Next Steps
+
+- Perform final UI polish across the application.
+- Review navigation and spacing for consistency.
+- Add any remaining visual improvements.
+- Prepare the project for deployment and portfolio presentation.
+
+## Reflection
+
+Today's development session focused on making CivicBridge more accessible across different screen sizes. By adding responsive styling through a media query, the application's main pages can now adapt more effectively to mobile and tablet devices while preserving the existing desktop layout. This was an important step toward making CivicBridge feel more complete and production-ready.

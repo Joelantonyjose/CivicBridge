@@ -943,3 +943,296 @@ footer{
     color:#555;
 
 }
+
+/* Responsive Design */
+
+@media (max-width: 768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+    .hero{
+
+        padding:60px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+        .stats{
+
+        padding:40px 20px;
+
+    }
+
+    .stats h2{
+
+        font-size:30px;
+
+        margin-bottom:30px;
+
+    }
+
+    .stat-card{
+
+        width:100%;
+
+        max-width:300px;
+
+    }
+        .how-it-works{
+
+        padding:40px 20px;
+
+    }
+
+    .how-it-works h2{
+
+        font-size:30px;
+
+    }
+
+    .steps-container{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .step-card{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+        .recent-issues{
+
+        padding:40px 20px;
+
+    }
+
+    .recent-issues h2{
+
+        font-size:30px;
+
+    }
+
+    .recent-issues-container{
+
+        grid-template-columns:1fr;
+
+    }
+        footer{
+
+        padding:20px;
+
+        text-align:center;
+
+    }
+
+    footer p{
+
+        font-size:14px;
+
+    }
+        .issues-header{
+
+        padding:40px 20px 25px;
+
+    }
+
+    .issues-header h1{
+
+        font-size:32px;
+
+    }
+
+    .filter-bar{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:20px;
+
+    }
+
+    .filter-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .search-form{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .search-form input{
+
+        width:100%;
+
+        max-width:250px;
+
+    }
+        .issue-card{
+
+        padding:20px;
+
+    }
+
+    .issue-top{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .issue-actions{
+
+        flex-wrap:wrap;
+
+        gap:10px;
+
+    }
+
+    .issue-actions a{
+
+        text-align:center;
+
+    }
+    .issue-card{
+
+    padding:20px;
+
+}
+
+.issue-top{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+.issue-actions{
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.issue-actions a{
+
+    text-align:center;
+
+}
+    .report-header{
+
+        padding:40px 20px 25px;
+
+    }
+
+    .report-header h1{
+
+        font-size:32px;
+
+    }
+
+    .report-container{
+
+        padding:15px;
+
+    }
+
+    .report-form{
+
+        padding:25px 20px;
+
+    }
+
+    .form-group input,
+    .form-group textarea{
+
+        font-size:16px;
+
+    }
+        .about-header{
+
+        padding:40px 20px 25px;
+
+    }
+
+    .about-header h1{
+
+        font-size:32px;
+
+    }
+
+    .about-header p{
+
+        font-size:16px;
+
+    }
+
+    .about-container{
+
+        grid-template-columns:1fr;
+
+        padding:15px;
+
+        gap:20px;
+
+    }
+
+    .about-card{
+
+        padding:25px;
+
+    }
+
+    .about-card h2{
+
+        font-size:24px;
+
+    }
+
+}
