@@ -38,15 +38,35 @@
 
         <ul class="nav-links">
 
-            <li><a href="/">Home</a></li>
+    <li>
+        <a href="/"
+           class="{% if request.endpoint == 'home' %}active{% endif %}">
+            Home
+        </a>
+    </li>
 
-            <li><a href="/report">Report Issue</a></li>
+    <li>
+        <a href="/report"
+           class="{% if request.endpoint == 'report' %}active{% endif %}">
+            Report Issue
+        </a>
+    </li>
 
-            <li><a href="/issues">View Issues</a></li>
+    <li>
+        <a href="/issues"
+           class="{% if request.endpoint == 'issues' %}active{% endif %}">
+            View Issues
+        </a>
+    </li>
 
-            <li><a href="/about">About</a></li>
+    <li>
+        <a href="/about"
+           class="{% if request.endpoint == 'about' %}active{% endif %}">
+            About
+        </a>
+    </li>
 
-        </ul>
+</ul>
 
     </nav>
 

@@ -52,7 +52,25 @@ body{
 }
 
 .nav-links a:hover{
+
     color:#2e7d32;
+
+    border-bottom:2px solid #2e7d32;
+
+    padding-bottom:4px;
+
+}
+
+.nav-links a.active{
+
+    color:#2e7d32;
+
+    font-weight:600;
+
+    border-bottom:2px solid #2e7d32;
+
+    padding-bottom:4px;
+
 }
 
 /* Main Content */
@@ -121,6 +139,20 @@ footer{
     border:2px solid #2e7d32;
     border-radius:10px;
     font-weight:600;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    transition:0.3s;
+
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+
+    transform:translateY(-2px);
+
 }
 
 .hero-image{
@@ -620,6 +652,16 @@ footer{
 .btn-delete:hover{
 
     background:#b71c1c;
+
+}
+
+/* Button hover lift effect */
+
+.btn-resolve:hover,
+.btn-edit:hover,
+.btn-delete:hover{
+
+    transform:translateY(-2px);
 
 }
 
@@ -1234,5 +1276,13 @@ footer{
         font-size:24px;
 
     }
+
+}
+
+.nav-links a.active{
+
+    color:#2e7d32;
+
+    font-weight:600;
 
 }

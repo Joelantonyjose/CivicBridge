@@ -859,3 +859,53 @@ Improve the responsiveness of the CivicBridge application to ensure that the use
 ## Reflection
 
 Today's development session focused on making CivicBridge more accessible across different screen sizes. By adding responsive styling through a media query, the application's main pages can now adapt more effectively to mobile and tablet devices while preserving the existing desktop layout. This was an important step toward making CivicBridge feel more complete and production-ready.
+
+
+# 🌉 CivicBridge Development Journal – Day 27
+
+**Date:** 20 August 2026
+
+## Objective
+
+Improve the overall visual consistency and user experience of CivicBridge through final UI polish and interaction improvements.
+
+## Work Completed
+
+- Added active navigation link functionality.
+- Updated the navigation bar so the current page is visually highlighted.
+- Added green styling and increased font weight for the active navigation link.
+- Added an underline to the active navigation link.
+- Improved navigation link hover effects with a green underline.
+- Added smooth hover transitions to the navigation links.
+- Added a subtle lift effect to the Resolve, Edit, and Delete action buttons.
+- Added a subtle lift effect to the homepage hero buttons.
+- Performed a final visual consistency check across the main pages.
+- Verified that the new UI improvements did not negatively affect the responsive layout.
+
+## Files Modified
+
+- `templates/base.html`
+- `static/style.css`
+
+## Testing
+
+- Tested active navigation links across:
+  - Home
+  - Report Issue
+  - View Issues
+  - About
+- Tested navigation hover effects.
+- Tested hero button hover effects.
+- Tested Resolve, Edit, and Delete button hover effects.
+- Checked the application in desktop view.
+- Checked the application in mobile view to ensure responsiveness remained intact.
+
+## Reflection
+
+Today's session focused on small but important UI improvements. The application now provides clearer navigation feedback by highlighting the active page and adding consistent hover interactions. Button hover effects also make the interface feel more interactive and polished. These refinements improve the overall user experience without changing the core functionality of CivicBridge.
+
+## Next Steps
+
+- Review the project as a complete application.
+- Identify any remaining bugs or improvements.
+- Consider deployment and portfolio preparation.
