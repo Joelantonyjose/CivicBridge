@@ -909,3 +909,45 @@ Today's session focused on small but important UI improvements. The application 
 - Review the project as a complete application.
 - Identify any remaining bugs or improvements.
 - Consider deployment and portfolio preparation.
+
+
+# 🌉 CivicBridge Development Journal – Day 28
+
+**Date:** 26 August 2026
+
+## Objective
+
+Begin implementing user authentication for CivicBridge by creating a user database and adding user registration functionality.
+
+## Work Completed
+
+- Reviewed the existing database setup.
+- Created a new `users` table in `civicbridge.db`.
+- Added `id`, `username`, and `password` fields.
+- Set the username field as `UNIQUE` to prevent duplicate accounts.
+- Added password hashing using `generate_password_hash()`.
+- Added the `/register` route with GET and POST methods.
+- Created the `register.html` registration page.
+- Added validation for empty username and password fields.
+- Added duplicate username handling using `try` and `except sqlite3.IntegrityError`.
+- Added flash messages for successful registration and registration errors.
+- Tested successful user registration.
+- Tested duplicate username validation.
+
+## Challenges
+
+- Worked with an existing SQLite database while adding a new table.
+- Learned how password hashing protects user passwords.
+- Practiced handling database errors using `try` and `except`.
+- Fixed indentation issues while working with Python's `try` and `except` blocks.
+
+## Next Steps
+
+- Implement user login functionality.
+- Verify passwords using `check_password_hash()`.
+- Add user sessions.
+- Implement logout functionality.
+
+## Reflection
+
+Today's session marked the beginning of the user authentication phase of CivicBridge. The application can now register users securely, store hashed passwords, validate required fields, and prevent duplicate usernames. This creates the foundation for implementing login and session management in the next stage.

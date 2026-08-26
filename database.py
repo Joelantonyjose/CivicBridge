@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS reports (
     name TEXT,
     location TEXT,
     title TEXT,
-    description TEXT
+    description TEXT,
     status TEXT
 )
 """)

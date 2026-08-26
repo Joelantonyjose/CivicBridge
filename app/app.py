@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for,flash
 import sqlite3
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app= Flask(__name__)
 app.secret_key="civicbridge_secret"
@@ -69,6 +70,48 @@ def report():
         return redirect(url_for("issues"))
        
     return render_template("report.html")
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+
+    if request.method == "POST":
+
+        username = request.form["username"].strip()
+        password = request.form["password"]
+
+        if not username or not password:
+            flash("Username and password are required!")
+            return redirect(url_for("register"))
+
+        hashed_password = generate_password_hash(password)
+
+        conn = sqlite3.connect("civicbridge.db")
+        cursor = conn.cursor()
+
+        try:
+
+            cursor.execute(
+                "INSERT INTO users (username, password) VALUES (?, ?)",
+                (username, hashed_password)
+            )
+
+            conn.commit()
+
+        except sqlite3.IntegrityError:
+
+            conn.close()
+
+            flash("Username already exists!")
+
+            return redirect(url_for("register"))
+
+        conn.close()
+
+        flash("Registration successful! Please log in.")
+
+        return redirect(url_for("home"))
+
+    return render_template("register.html")
 
 @app.route("/issues")
 def issues():
