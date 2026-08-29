@@ -951,3 +951,93 @@ Begin implementing user authentication for CivicBridge by creating a user databa
 ## Reflection
 
 Today's session marked the beginning of the user authentication phase of CivicBridge. The application can now register users securely, store hashed passwords, validate required fields, and prevent duplicate usernames. This creates the foundation for implementing login and session management in the next stage.
+
+
+# 🌉 CivicBridge Development Journal – Day 29
+
+**Date:** 29 August 2026
+
+## Objective
+
+Implement user login, session management, logout functionality, and connect authenticated users with submitted reports.
+
+## Work Completed
+
+- Created the `/login` route with GET and POST methods.
+- Created `login.html` for user login.
+- Retrieved registered users from the SQLite database.
+- Used `check_password_hash()` to verify passwords securely.
+- Added Flask session support using `session`.
+- Stored the logged-in username in the session.
+- Created the `/logout` route.
+- Added dynamic Login, Register, and Logout links to the navigation bar.
+- Protected the `/report` route so only logged-in users can submit issues.
+- Protected the `/edit/<id>` and `/delete/<id>` routes from unauthenticated access.
+- Added a `username` column to the `reports` table.
+- Updated the report submission logic to store the logged-in user's username with each report.
+- Tested the complete authentication flow successfully.
+
+## Testing
+
+- Successfully logged in using a registered account.
+- Successfully handled incorrect passwords.
+- Successfully logged out.
+- Confirmed that the navigation changes depending on login status.
+- Confirmed that unauthenticated users are redirected to the login page when accessing protected routes.
+- Successfully submitted a report while logged in.
+- Confirmed that the submitted report appears correctly in View Issues.
+
+## Files Created
+
+- `templates/login.html`
+
+## Files Modified
+
+- `app.py`
+- `templates/base.html`
+- `update_database.py`
+
+## Database Changes
+
+Added the following column to the `reports` table:
+
+- `username`
+
+This allows CivicBridge to associate reports with the registered user who submitted them.
+
+## Challenges
+
+- Learned how Flask sessions maintain login information between requests.
+- Learned how to protect routes using session checks.
+- Learned how to dynamically display navigation links based on authentication status.
+- Connected authenticated users with their submitted reports.
+- Practiced updating an existing SQLite database using `ALTER TABLE`.
+
+## Authentication Phase Status
+
+- ✅ User database
+- ✅ User registration
+- ✅ Password hashing
+- ✅ User login
+- ✅ Password verification
+- ✅ Session management
+- ✅ Logout
+- ✅ Protected routes
+- ✅ User-report association
+- ✅ Authentication testing
+
+## Next Steps
+
+The core user authentication phase is now complete.
+
+Future improvements can include:
+
+- User profile functionality
+- Showing only a user's own reports
+- Role-based access for Citizens and Representatives
+- Improved authorization for editing and deleting reports
+- Additional security improvements
+
+## Reflection
+
+Today's session completed the core authentication functionality of CivicBridge. Users can now register, securely log in, remain recognized through sessions, log out, and submit reports associated with their accounts. Protected routes also prevent unauthenticated users from accessing report-related actions. This represents a major step toward making CivicBridge a more complete and realistic civic reporting platform.

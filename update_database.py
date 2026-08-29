@@ -1,13 +1,15 @@
 import sqlite3
 
-conn=sqlite3.connect("civicbridge.db")
-cursor=conn.cursor()
+conn = sqlite3.connect("civicbridge.db")
+
+cursor = conn.cursor()
 
 cursor.execute(
-    "ALTER TABLE reports ADD COLUMN status TEXT"
+    "ALTER TABLE reports ADD COLUMN username TEXT"
 )
 
 conn.commit()
+
 conn.close()
 
-print("Status column added successfully")
+print("Username column added successfully")

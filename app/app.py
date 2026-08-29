@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for,flash
+from flask import Flask, render_template, request, redirect, url_for,flash,session
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -46,6 +46,11 @@ def home():
 
 @app.route("/report", methods=["GET","POST"])
 def report():
+
+    if "username" not in session:
+        flash("Please log in to report an issue.")
+        return redirect(url_for("login"))
+
     if request.method == "POST":
         name = request.form["name"].strip()
         location = request.form["location"].strip()
@@ -59,8 +64,8 @@ def report():
         conn=sqlite3.connect("civicbridge.db")
         cursor=conn.cursor()
         cursor.execute(
-            "INSERT INTO reports (name, location, title, description, status) VALUES (?, ?, ?, ?, ?)",
-            (name, location, title, description, "Pending")
+            "INSERT INTO reports (name, location, title, description, status, username) VALUES (?, ?, ?, ?, ?, ?)",
+            (name, location, title, description, "Pending", session["username"])
         )
         conn.commit()
         conn.close()
@@ -113,6 +118,49 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "POST":
+
+        username = request.form["username"].strip()
+        password = request.form["password"]
+
+        conn = sqlite3.connect("civicbridge.db")
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "SELECT * FROM users WHERE username = ?",
+            (username,)
+        )
+
+        user = cursor.fetchone()
+
+        conn.close()
+
+        if user and check_password_hash(user[2], password):
+
+            session["username"] = username
+
+            flash("Login successful!")
+
+            return redirect(url_for("home"))
+
+        flash("Invalid username or password!")
+
+        return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+
+    session.pop("username", None)
+
+    flash("You have been logged out.")
+
+    return redirect(url_for("home"))
+
 @app.route("/issues")
 def issues():
     conn = sqlite3.connect("civicbridge.db")
@@ -149,6 +197,10 @@ def about():
 
 @app.route("/delete/<int:id>")
 def delete(id):
+    if "username" not in session:
+        flash("Please log in to delete an issue.")
+        return redirect(url_for("login"))
+
     conn = sqlite3.connect("civicbridge.db")
     cursor = conn.cursor()
 
@@ -182,6 +234,10 @@ def resolve(id):
 
 @app.route("/edit/<int:id>", methods=["GET","POST"])
 def edit(id):
+    if "username" not in session:
+        flash("Please log in to edit an issue.")
+        return redirect(url_for("login"))
+
     conn=sqlite3.connect("civicbridge.db")
     cursor=conn.cursor()
 
