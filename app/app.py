@@ -76,6 +76,27 @@ def report():
        
     return render_template("report.html")
 
+@app.route("/my-reports")
+def my_reports():
+
+    if "username" not in session:
+        flash("Please log in to view your reports.")
+        return redirect(url_for("login"))
+
+    conn = sqlite3.connect("civicbridge.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT * FROM reports WHERE username=?",
+        (session["username"],)
+    )
+
+    reports = cursor.fetchall()
+
+    conn.close()
+
+    return render_template("my_reports.html", reports=reports)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 

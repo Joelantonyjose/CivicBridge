@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="issues-header">
+
+    <h1>My Reports</h1>
+
+    <p>View the issues you have reported.</p>
+
+</section>
+
+<section class="issues-container">
+
+    {% if reports %}
+
+        {% for report in reports %}
+
+            <div class="issue-card">
+
+                <div class="issue-top">
+
+                    <h2>{{ report[3] }}</h2>
+
+                    <span class="status {{ report[5]|lower }}">
+                        {{ report[5] }}
+                    </span>
+
+                </div>
+
+                <p><strong>Location:</strong> {{ report[2] }}</p>
+
+                <p>{{ report[4] }}</p>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>You haven't reported any issues yet.</p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

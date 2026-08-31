@@ -1041,3 +1041,66 @@ Future improvements can include:
 ## Reflection
 
 Today's session completed the core authentication functionality of CivicBridge. Users can now register, securely log in, remain recognized through sessions, log out, and submit reports associated with their accounts. Protected routes also prevent unauthenticated users from accessing report-related actions. This represents a major step toward making CivicBridge a more complete and realistic civic reporting platform.
+
+
+# 🌉 CivicBridge Development Journal – Day 30
+
+**Date:** 31 August 2026
+
+## Objective
+
+Implement user-specific report viewing so that logged-in users can view the reports they have personally submitted.
+
+## Work Completed
+
+- Added a **My Reports** option to the navigation bar for logged-in users.
+- Created the `/my-reports` route in `app.py`.
+- Added authentication protection to the `/my-reports` route.
+- Used Flask sessions to identify the currently logged-in user.
+- Used `session["username"]` to retrieve the username of the logged-in user.
+- Added a database query to retrieve only reports belonging to the logged-in user.
+- Created `my_reports.html` to display the user's reports.
+- Displayed report title, location, description, and status on the My Reports page.
+- Reused the existing CivicBridge report-card design.
+- Tested the My Reports functionality successfully.
+
+## Testing
+
+- Successfully logged in using a registered account.
+- Confirmed that the **My Reports** option appears in the navigation bar after login.
+- Successfully opened the My Reports page.
+- Confirmed that the user's submitted reports are displayed.
+- Confirmed that reports are retrieved based on the logged-in user's username.
+- Confirmed that unauthenticated users are redirected to the login page when accessing `/my-reports`.
+
+## Files Created
+
+- `templates/my_reports.html`
+
+## Files Modified
+
+- `app.py`
+- `templates/base.html`
+
+## Database Integration
+
+The existing `reports` table contains a `username` column that was added during the previous authentication phase.
+
+The My Reports feature uses the logged-in user's username to retrieve their reports from the database.
+
+## Next Steps
+
+The next session will focus on report ownership and authorization.
+
+Future improvements can include:
+
+Preventing users from editing reports belonging to other users.
+Preventing users from deleting reports belonging to other users.
+Adding ownership checks to the edit and delete routes.
+Ensuring that users can only manage their own reports.
+Introducing role-based access for Citizens and Representatives.
+Creating a Representative dashboard.
+
+## Reflection
+
+Today's session started Phase 2 of CivicBridge by implementing user-specific functionality. The application can now identify the logged-in user and display only the reports associated with that user. This makes the authentication system more meaningful and moves CivicBridge closer to becoming a proper multi-user civic reporting platform.
