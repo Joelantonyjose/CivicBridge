@@ -1104,3 +1104,86 @@ Creating a Representative dashboard.
 ## Reflection
 
 Today's session started Phase 2 of CivicBridge by implementing user-specific functionality. The application can now identify the logged-in user and display only the reports associated with that user. This makes the authentication system more meaningful and moves CivicBridge closer to becoming a proper multi-user civic reporting platform.
+
+
+# 🌉 CivicBridge Development Journal – Day 31
+
+**Date:** 2 September 2026
+
+## Objective
+
+Implement **report ownership and authorization** so that users can only edit or delete reports that they personally submitted.
+
+## Work Completed
+
+- Implemented report ownership verification for editing reports.
+- Prevented users from editing reports belonging to other users.
+- Added Edit and Delete options to the **My Reports** page.
+- Restricted editing of resolved reports.
+- Implemented ownership verification for deleting reports.
+- Prevented users from deleting reports belonging to other users.
+- Added proper authorization messages for unauthorized actions.
+- Tested both authorized and unauthorized editing.
+- Tested both authorized and unauthorized deletion.
+- Confirmed that report ownership is now enforced.
+
+## Testing
+
+- Successfully edited a report belonging to the logged-in user.
+- Confirmed that edited report details were saved.
+- Logged in as a different user and attempted to edit another user's report.
+- Confirmed that unauthorized editing was blocked.
+- Successfully deleted a report belonging to the logged-in user.
+- Logged in as a different user and attempted to delete another user's report.
+- Confirmed that unauthorized deletion was blocked.
+- Confirmed that reports belonging to other users remain protected.
+
+## Files Modified
+
+- `app.py`
+- `templates/my_reports.html`
+
+## Challenges
+
+- Learned the difference between **authentication** and **authorization**.
+- Learned how report ownership can be connected with the logged-in user's session.
+- Learned how to restrict database operations based on the current user.
+- Understood why authorization should be enforced when performing database operations.
+- Tested direct URL access to verify that unauthorized users cannot manipulate other users' reports.
+
+## Phase 2 Status
+
+- ✅ User authentication
+- ✅ Registration and login
+- ✅ Session management
+- ✅ Protected report submission
+- ✅ Username stored with reports
+- ✅ My Reports feature
+- ✅ Edit ownership protection
+- ✅ Delete ownership protection
+- 🔜 Report resolution authorization
+- 🔜 Citizen and Representative roles
+- 🔜 Representative dashboard
+
+## Next Steps
+
+The next session will focus on the **Resolve** functionality.
+
+The current Resolve feature does not have proper authorization. Instead of allowing ordinary users to resolve reports, CivicBridge will move toward a role-based system.
+
+Planned improvements:
+
+- Review and secure the Resolve functionality.
+- Introduce user roles such as **Citizen** and **Representative**.
+- Add role-based permissions.
+- Allow Representatives to review and resolve civic reports.
+- Create a Representative dashboard.
+- Improve report status management.
+
+## Reflection
+
+Today's session was an important security milestone for CivicBridge.
+The application can now distinguish between a user being **logged in** and a user being **authorized** to modify a particular report.
+Users can edit and delete their own reports while reports belonging to other users remain protected.
+This makes CivicBridge a more secure multi-user platform and provides a strong foundation for introducing **Citizen and Representative roles** in the next stage.
+The project is gradually moving from a basic civic reporting application toward a more structured and scalable platform.

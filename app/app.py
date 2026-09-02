@@ -226,9 +226,13 @@ def delete(id):
     cursor = conn.cursor()
 
     cursor.execute(
-        "DELETE FROM reports WHERE id = ?",
-        (id,)
+        "DELETE FROM reports WHERE id = ? AND username = ?",
+        (id, session["username"])
     )
+    if cursor.rowcount == 0:
+        conn.close()
+        flash("You are not authorized to delete this report.")
+        return redirect(url_for("issues"))
 
     conn.commit()
     conn.close()
@@ -270,9 +274,9 @@ def edit(id):
             """
             UPDATE reports
             SET title=?,description=?
-            WHERE id=?
+            WHERE id=? AND username=?
             """,
-            (title,description,id)
+            (title,description,id,session["username"])
         )
 
         conn.commit()
@@ -291,6 +295,11 @@ def edit(id):
     if report is None:
         conn.close()
         flash("Report not found.")
+        return redirect(url_for("issues"))
+
+    if report[6] != session["username"]:
+        conn.close()
+        flash("You are not authorized to edit this report.")
         return redirect(url_for("issues"))
     
     if report[5]=="Resolved":
