@@ -79,15 +79,17 @@
 
         <div class="issue-actions">
 
-            {% if report[5] == "Pending" %}
+           {% if report[5] == "Pending" %}
 
-                <a href="/resolve/{{ report[0] }}" class="btn-resolve">
-                    Resolve
-                </a>
+                {% if session.get("role") == "Representative" %}
+                    <a href="/resolve/{{ report[0] }}" class="btn-resolve">
+                        Resolve
+                    </a>
+                {% endif %}
 
                 <a href="/edit/{{ report[0] }}" class="btn-edit">
                     Edit
-                </a>
+                 </a>
 
             {% endif %}
 

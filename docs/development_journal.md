@@ -1187,3 +1187,110 @@ The application can now distinguish between a user being **logged in** and a use
 Users can edit and delete their own reports while reports belonging to other users remain protected.
 This makes CivicBridge a more secure multi-user platform and provides a strong foundation for introducing **Citizen and Representative roles** in the next stage.
 The project is gradually moving from a basic civic reporting application toward a more structured and scalable platform.
+
+
+# 🌉 CivicBridge Development Journal – Day 32
+
+**Date:** 4 September 2026
+
+## Objective
+
+Introduce **role-based access control** to CivicBridge and secure the issue resolution functionality so that only Representatives can resolve civic reports.
+
+## Work Completed
+
+- Added a `role` column to the `users` table.
+- Set the default role of newly registered users to **Citizen**.
+- Promoted an existing test account to the **Representative** role.
+- Updated the login system to store the user's role in the Flask session.
+- Secured the Resolve functionality so that only Representatives can resolve reports.
+- Prevented unauthenticated users from accessing the Resolve functionality.
+- Updated the Issues page so that the **Resolve** button is visible only to Representatives.
+- Kept backend authorization in place even after hiding the button from Citizens.
+- Verified that Representatives can successfully resolve pending reports.
+
+## Testing
+
+### Citizen Testing
+
+- Logged in as a Citizen.
+- Confirmed that the **Resolve** button is not visible.
+- Attempted to access the Resolve URL directly.
+- Confirmed that the action was rejected with an authorization message.
+
+### Representative Testing
+
+- Logged in as a Representative.
+- Confirmed that the **Resolve** button is visible for pending reports.
+- Successfully clicked Resolve.
+- Confirmed that the report status changed from **Pending** to **Resolved**.
+
+## Files Modified
+
+- `app.py`
+- `templates/issues.html`
+- `update_database.py`
+
+## Database Changes
+
+The `users` table was updated with a new role field.
+
+The available roles currently include:
+
+- **Citizen**
+- **Representative**
+
+New users automatically receive the Citizen role.
+
+An existing test account was manually assigned the Representative role for testing.
+
+## Security Improvements
+
+Day 32 introduced the first role-based authorization system in CivicBridge.
+
+The application now distinguishes between:
+
+**Authentication**  
+Whether a user is logged in.
+
+**Authorization**  
+Whether the logged-in user has permission to perform a particular action.
+
+Only users with the **Representative** role are authorized to resolve civic reports.
+
+The backend authorization check protects the actual route, while the frontend condition prevents Citizens from seeing an action they cannot perform.
+
+## Challenges
+
+- Learned how to introduce user roles into an existing database.
+- Learned how database defaults can assign a role to newly registered users.
+- Learned how to store a user's role in a Flask session.
+- Learned how to implement role-based authorization for a Flask route.
+- Learned why frontend button visibility and backend authorization should both be implemented.
+- Tested authorization by attempting to access a protected route directly.
+
+## Phase 2 Status
+
+- ✅ User authentication
+- ✅ Registration and login
+- ✅ Session management
+- ✅ Protected report submission
+- ✅ Username stored with reports
+- ✅ My Reports feature
+- ✅ Report ownership protection
+- ✅ Edit authorization
+- ✅ Delete authorization
+- ✅ Citizen and Representative roles
+- ✅ Role stored in session
+- ✅ Resolve authorization
+- ✅ Representative-only Resolve button
+- 🔜 Representative dashboard
+- 🔜 Advanced report management
+
+## Reflection
+
+Today's session introduced an important architectural improvement to CivicBridge.
+The application is no longer treating every authenticated user the same. CivicBridge can now distinguish between **Citizens** and **Representatives** and assign different permissions to each role.
+Citizens can report and manage their own issues, while Representatives can perform administrative actions such as resolving civic reports.
+This role-based foundation will make it possible to build a dedicated **Representative side of CivicBridge** in future sessions.
+The project is continuing to evolve from a basic reporting application into a structured multi-user civic platform.

@@ -163,6 +163,8 @@ def login():
 
             session["username"] = username
 
+            session["role"] = user[3]
+
             flash("Login successful!")
 
             return redirect(url_for("home"))
@@ -242,6 +244,14 @@ def delete(id):
 
 @app.route("/resolve/<int:id>")
 def resolve(id):
+    if "username" not in session:
+        flash("Please log in to resolve an issue.")
+        return redirect(url_for("login"))
+
+    if session.get("role") != "Representative":
+        flash("You are not authorized to resolve issues.")
+        return redirect(url_for("issues"))
+
     conn=sqlite3.connect("civicbridge.db")
     cursor=conn.cursor()
 
@@ -254,7 +264,6 @@ def resolve(id):
     conn.close()
 
     flash("✅ Issue marked as resolved!")
-
     return redirect(url_for("issues"))
 
 @app.route("/edit/<int:id>", methods=["GET","POST"])
