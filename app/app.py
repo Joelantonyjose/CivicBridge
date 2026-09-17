@@ -224,6 +224,10 @@ def delete(id):
         flash("Please log in to delete an issue.")
         return redirect(url_for("login"))
 
+    if session.get("role") != "Citizen":
+        flash("You are not authorized to delete issues.")
+        return redirect(url_for("issues"))
+
     conn = sqlite3.connect("civicbridge.db")
     cursor = conn.cursor()
 
@@ -271,6 +275,10 @@ def edit(id):
     if "username" not in session:
         flash("Please log in to edit an issue.")
         return redirect(url_for("login"))
+
+    if session.get("role") != "Citizen":
+        flash("You are not authorized to edit issues.")
+        return redirect(url_for("issues"))
 
     conn=sqlite3.connect("civicbridge.db")
     cursor=conn.cursor()

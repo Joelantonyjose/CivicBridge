@@ -1294,3 +1294,118 @@ The application is no longer treating every authenticated user the same. CivicBr
 Citizens can report and manage their own issues, while Representatives can perform administrative actions such as resolving civic reports.
 This role-based foundation will make it possible to build a dedicated **Representative side of CivicBridge** in future sessions.
 The project is continuing to evolve from a basic reporting application into a structured multi-user civic platform.
+
+
+# 🌉 CivicBridge Development Journal – Day 33
+
+**Date:** 17 September 2026
+
+## Objective
+
+Strengthen the role-based permission system in CivicBridge by ensuring that **Representatives cannot edit or delete civic reports**, while **Citizens can manage their own pending reports**.
+
+## Work Completed
+
+- Restricted the **Edit** functionality to Citizens.
+- Added backend role authorization to the Edit route.
+- Prevented Representatives from accessing the Edit functionality through direct URLs.
+- Restricted the **Delete** functionality to Citizens.
+- Added backend role authorization to the Delete route.
+- Updated the Issues page so Representatives no longer see the Delete button.
+- Ensured Citizens can still edit their own pending reports.
+- Ensured Citizens can still delete their own reports.
+- Kept the Resolve functionality restricted to Representatives.
+- Tested the permission system using both Citizen and Representative accounts.
+
+## Testing
+
+### Representative Testing
+
+- Logged in as a Representative.
+- Confirmed that the **Edit** button is not visible.
+- Attempted to access the Edit URL directly.
+- Confirmed that the action was rejected with an authorization message.
+- Confirmed that the **Delete** button is not visible.
+- Attempted to access the Delete URL directly.
+- Confirmed that the action was rejected with an authorization message.
+- Confirmed that the **Resolve** button remains available for pending reports.
+
+### Citizen Testing
+
+- Logged in as a Citizen.
+- Confirmed that the **Edit** button is visible for pending reports.
+- Successfully edited a report owned by the Citizen.
+- Confirmed that the **Delete** button is visible for pending reports.
+- Successfully deleted a report owned by the Citizen.
+- Confirmed that Citizens cannot access the Resolve functionality.
+
+## Security Improvements
+
+Day 33 strengthened the authorization system introduced in Day 32.
+
+The application now uses both **frontend visibility controls** and **backend authorization checks**.
+
+### Frontend
+
+The Issues page displays actions according to the user's role:
+
+- Citizens → Edit and Delete
+- Representatives → Resolve
+
+### Backend
+
+The corresponding Flask routes also verify the user's role before performing the action.
+
+This means that hiding a button is not the only security mechanism. A user attempting to manually access a protected URL is also prevented from performing an unauthorized action.
+
+## Current Permission Model
+
+| Action | Citizen | Representative |
+|---|---|---|
+| Report an issue | ✅ | — |
+| Edit own pending issue | ✅ | ❌ |
+| Delete own pending issue | ✅ | ❌ |
+| Resolve an issue | ❌ | ✅ |
+
+## Files Modified
+
+- `app.py`
+- `templates/issues.html`
+
+## Challenges
+
+- Learned that frontend restrictions alone are not sufficient for authorization.
+- Learned how to enforce role permissions directly inside Flask routes.
+- Tested protected functionality through direct URL access.
+- Strengthened the separation between Citizen and Representative capabilities.
+- Verified that existing Citizen functionality continued to work after adding role restrictions.
+
+## Phase 2 Status
+
+- ✅ User authentication
+- ✅ Registration and login
+- ✅ Session management
+- ✅ Protected report submission
+- ✅ Username stored with reports
+- ✅ My Reports feature
+- ✅ Report ownership protection
+- ✅ Edit authorization
+- ✅ Delete authorization
+- ✅ Citizen and Representative roles
+- ✅ Role stored in session
+- ✅ Resolve authorization
+- ✅ Representative-only Resolve button
+- ✅ Representative blocked from Edit
+- ✅ Representative blocked from Delete
+- 🔜 Representative dashboard
+- 🔜 Advanced report management
+
+## Reflection
+
+Today's work further established CivicBridge as a **multi-user platform with role-based permissions**.
+
+The application now clearly separates the responsibilities of Citizens and Representatives. Citizens can manage their own pending reports, while Representatives are responsible for resolving civic issues.
+
+More importantly, the permission system is enforced at the backend level rather than relying only on the interface. This provides a stronger foundation for building the dedicated **Representative side of CivicBridge** in future sessions.
+
+The next stage can focus on building more functionality around Representatives and their workflow for managing civic reports.
