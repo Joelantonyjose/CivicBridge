@@ -327,6 +327,38 @@ def edit(id):
     conn.close()
     return render_template("edit.html",report=report)
 
+@app.route("/representative-dashboard")
+def representative_dashboard():
+
+    if "username" not in session:
+        flash("Please log in to access the Representative Dashboard.")
+        return redirect(url_for("login"))
+
+    if session.get("role") != "Representative":
+        flash("You are not authorized to access the Representative Dashboard.")
+        return redirect(url_for("home"))
+
+    conn = sqlite3.connect("civicbridge.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) FROM reports")
+    total_reports = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM reports WHERE status='Pending'")
+    pending_reports = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM reports WHERE status='Resolved'")
+    resolved_reports = cursor.fetchone()[0]
+
+    conn.close()
+
+    return render_template(
+        "representative_dashboard.html",
+        total_reports=total_reports,
+        pending_reports=pending_reports,
+        resolved_reports=resolved_reports
+    )
+
 if __name__=="__main__":
     app.run(debug=True)
 

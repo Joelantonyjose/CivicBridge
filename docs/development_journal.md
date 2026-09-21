@@ -1409,3 +1409,86 @@ The application now clearly separates the responsibilities of Citizens and Repre
 More importantly, the permission system is enforced at the backend level rather than relying only on the interface. This provides a stronger foundation for building the dedicated **Representative side of CivicBridge** in future sessions.
 
 The next stage can focus on building more functionality around Representatives and their workflow for managing civic reports.
+
+
+# 🌉 CivicBridge Development Journal – Day 34
+
+**Date:** 21 September 2026
+
+## Objective
+
+Begin building the **Representative side of CivicBridge** by creating a dedicated **Representative Dashboard** where Representatives can monitor the overall state of civic reports and quickly access pending issues.
+
+The dashboard was designed with role-based access control so that only users with the **Representative** role can access it.
+
+## Work Completed
+
+- Added a **Representative Dashboard** link to the navigation bar.
+- Made the dashboard link visible only to users with the **Representative** role.
+- Created the `/representative-dashboard` route.
+- Added authentication protection to the Representative Dashboard.
+- Added role-based authorization to prevent Citizens from accessing the dashboard.
+- Created the `representative_dashboard.html` template.
+- Connected the dashboard to the SQLite database.
+- Added live statistics for:
+  - Total Reports
+  - Pending Reports
+  - Resolved Reports
+- Passed database statistics from the Flask route to the Jinja template.
+- Displayed the statistics as dashboard cards.
+- Added a **View Pending Reports** button.
+- Connected the button to the existing Pending Reports filter.
+- Added CSS styling for the dashboard layout and statistics.
+- Centered the **View Pending Reports** button.
+- Tested the dashboard using both Representative and Citizen accounts.
+
+## Representative Dashboard
+
+The new dashboard currently provides Representatives with an overview of the reports stored in CivicBridge.
+
+The dashboard displays:
+
+- **Total Reports**
+- **Pending Reports**
+- **Resolved Reports**
+
+During testing, the database contained:
+
+```text
+Total Reports:     6
+Pending Reports:   1
+Resolved Reports:  5
+
+## Phase 2 Status
+
+✅ User authentication
+✅ Registration and login
+✅ Session management
+✅ Protected report submission
+✅ Username stored with reports
+✅ My Reports feature
+✅ Report ownership protection
+✅ Edit authorization
+✅ Delete authorization
+✅ Citizen and Representative roles
+✅ Role stored in session
+✅ Resolve authorization
+✅ Representative-only Resolve button
+✅ Representative blocked from Edit
+✅ Representative blocked from Delete
+✅ Representative Dashboard
+✅ Representative Dashboard authentication
+✅ Representative Dashboard authorization
+✅ Live report statistics
+✅ Pending Reports shortcut
+🔜 Advanced Representative dashboard functionality
+🔜 Advanced report management
+
+## Reflection
+
+Day 34 marked the beginning of the dedicated Representative side of CivicBridge.
+Previously, Representatives mainly interacted with the general Issues page. The new dashboard provides them with a dedicated starting point for monitoring civic reports.
+The dashboard is currently simple, but it is already connected to the real SQLite database and displays live information about the current state of reports.
+The addition of the dashboard also demonstrates how the role-based authorization system can be extended beyond individual actions such as Edit, Delete, and Resolve.
+CivicBridge is gradually moving from a basic civic issue reporting application toward a more structured multi-user platform where different types of users have different responsibilities and workflows.
+The Representative Dashboard provides the foundation for adding more advanced management functionality in future development sessions.

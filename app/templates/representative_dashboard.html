@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>Representative Dashboard</h1>
+
+    <p>
+        Welcome, {{ session.get("username") }}.
+    </p>
+
+    <p>
+        Manage and monitor civic issues reported by the community.
+    </p>
+
+    <div class="dashboard-stats">
+
+        <div class="stat-card">
+            <h2>{{ total_reports }}</h2>
+            <p>Total Reports</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ pending_reports }}</h2>
+            <p>Pending Reports</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ resolved_reports }}</h2>
+            <p>Resolved Reports</p>
+        </div>
+
+    </div>
+    <div class="dashboard-actions">
+
+        <a href="/issues?status=Pending" class="btn-resolve">
+            View Pending Reports
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

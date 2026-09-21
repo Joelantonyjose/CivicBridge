@@ -48,6 +48,10 @@
 
     {% if session.get("username") %}
 
+        {% if session.get("role") == "Representative" %}
+            <li><a href="/representative-dashboard">Representative Dashboard</a></li>
+        {% endif %}
+
         <li><a href="/my-reports">My Reports</a></li>
 
         <li><a href="/logout">Logout</a></li>
