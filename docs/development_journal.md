@@ -1492,3 +1492,126 @@ The dashboard is currently simple, but it is already connected to the real SQLit
 The addition of the dashboard also demonstrates how the role-based authorization system can be extended beyond individual actions such as Edit, Delete, and Resolve.
 CivicBridge is gradually moving from a basic civic issue reporting application toward a more structured multi-user platform where different types of users have different responsibilities and workflows.
 The Representative Dashboard provides the foundation for adding more advanced management functionality in future development sessions.
+
+
+# 🌉 CivicBridge Development Journal – Day 35
+
+**Date:** 26 October 2026
+
+## Objective
+
+Enhance the **Representative Dashboard** by displaying actual pending civic reports directly on the dashboard, allowing Representatives to monitor unresolved issues and quickly access their details without navigating to a separate page first.
+
+The objective was to extend the dashboard introduced on Day 34 and make it more useful for managing civic issues reported by the community.
+
+## Work Completed
+
+- Added a database query to retrieve all reports with the **Pending** status.
+- Sorted pending reports by ID in descending order so that newer reports appear first.
+- Retrieved the pending report records using `fetchall()`.
+- Passed the pending report list from the Flask route to the dashboard template.
+- Updated `representative_dashboard.html` to display pending reports dynamically.
+- Displayed the issue title, location, description, reporter name, and status for each report.
+- Used a Jinja2 `for` loop to generate individual cards for pending reports.
+- Added conditional handling for situations where no pending reports exist.
+- Added an empty-state message for when all reports have been resolved.
+- Added a **Manage Reports** link to each pending report card.
+- Connected the link to the existing Pending Reports filter.
+- Added CSS styling for the pending reports section.
+- Styled individual report cards with white backgrounds, rounded corners, shadows, and an amber-colored left border.
+- Improved the spacing and readability of the report details.
+- Tested the dashboard and confirmed that the new functionality and styling work correctly.
+
+## Pending Reports on the Representative Dashboard
+
+The Representative Dashboard previously displayed statistics and a shortcut to the Pending Reports page.
+
+Today's update allows Representatives to view actual pending report details directly on the dashboard.
+
+Each pending report card displays:
+
+- **Issue Title**
+- **Location**
+- **Description**
+- **Reported By**
+- **Status**
+
+The dashboard retrieves these details from the SQLite database rather than displaying hardcoded information.
+
+### Database Query
+
+The following SQL query was added to retrieve pending reports:
+
+```sql
+SELECT *
+FROM reports
+WHERE status = 'Pending'
+ORDER BY id DESC;
+
+The query retrieves all columns for pending reports and displays newer reports first, assuming report IDs increase as reports are created.
+
+The fetchall() method is used to retrieve all matching records.
+
+UI Improvements
+CSS styling was added to improve the appearance of the pending reports section.
+
+The styling includes:
+- White backgrounds for report cards.
+- Rounded corners for a cleaner appearance.
+- Subtle shadows to distinguish individual cards.
+- An amber-colored left border to highlight pending issues.
+- Appropriate spacing between report cards.
+- Improved readability through margins and line spacing.
+- Consistent presentation of report details and the Manage Reports link.
+These changes make pending issues easier to identify and review from the dashboard.
+
+Testing
+Representative Dashboard Testing
+- Logged in using the Representative account.
+- Opened the Representative Dashboard.
+- Confirmed that the existing report statistics continued to display correctly.
+- Verified that pending reports appeared directly on the dashboard.
+- Confirmed that each report displayed its title, location, description, reporter name, and status.
+- Verified that newer reports appeared before older reports.
+- Confirmed that the pending report cards displayed correctly after applying CSS styling.
+- Clicked the Manage Reports link.
+- Verified that it opened the Pending Reports list.
+- Confirmed that the existing dashboard functionality remained operational.
+Empty-State Handling
+The dashboard template includes conditional logic for situations where no pending reports exist.
+
+When the pending report list is empty, a friendly message is displayed instead of an empty list of cards.
+
+Files Modified
+- app.py
+- templates/representative_dashboard.html
+- static/style.css
+
+Technical Concepts Learned
+- Retrieving filtered records from an SQLite database.
+- Using SQL conditions to select reports by status.
+- Sorting database results using ORDER BY.
+- Understanding the difference between retrieving a count and retrieving complete records.
+- Using fetchall() to retrieve multiple database rows.
+- Passing data from Flask routes to Jinja2 templates.
+- Iterating over database records using a Jinja2 for loop.
+- Using conditional statements in templates to handle empty results.
+- Displaying database-driven content dynamically.
+- Styling repeated content using CSS card layouts.
+- Connecting dashboard information to existing application workflows.
+
+Challenges
+- Extending the existing dashboard without disturbing its report statistics.
+- Retrieving complete pending report records while preserving the existing count queries.
+- Passing the new data from the Flask backend to the frontend.
+- Accessing the correct report fields using their database column positions.
+- Displaying multiple reports dynamically rather than using hardcoded content.
+- Handling situations where no pending reports are available.
+- Integrating the new report cards with the existing dashboard layout and styling.
+
+Reflection
+Day 35 further developed the dedicated Representative side of CivicBridge.
+
+On Day 34, the Representative Dashboard was introduced with live statistics and a shortcut to view pending reports. Today's work extended that foundation by displaying actual pending civic issues directly on the dashboard.
+
+Representatives can now see the details of unresolved reports, identify their locations, understand the reported problems, and navigate to the existing issue management page when action is required.

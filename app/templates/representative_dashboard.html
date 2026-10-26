@@ -40,6 +40,50 @@
 
     </div>
 
+    <div class="pending-reports-section">
+
+        <h2>Pending Reports</h2>
+
+        {% if pending_report_list %}
+
+            {% for report in pending_report_list %}
+
+                <div class="pending-report-card">
+
+                    <h3>{{ report[3] }}</h3>
+
+                    <p>
+                        <strong>Location:</strong> {{ report[2] }}
+                    </p>
+
+                    <p>
+                        <strong>Description:</strong> {{ report[4] }}
+                    </p>
+
+                    <p>
+                        <strong>Reported by:</strong> {{ report[1] }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong> {{ report[5] }}
+                    </p>
+
+                    <a href="/issues?status=Pending" class="btn-resolve">
+                        Manage Reports
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No pending reports. Great work!</p>
+
+        {% endif %}
+
+    </div>
+
 </section>
 
 {% endblock %}

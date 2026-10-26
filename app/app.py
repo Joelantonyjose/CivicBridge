@@ -350,13 +350,23 @@ def representative_dashboard():
     cursor.execute("SELECT COUNT(*) FROM reports WHERE status='Resolved'")
     resolved_reports = cursor.fetchone()[0]
 
+    cursor.execute("""
+    SELECT *
+    FROM reports
+    WHERE status = 'Pending'
+    ORDER BY id DESC
+    """)
+
+    pending_report_list = cursor.fetchall()
+
     conn.close()
 
     return render_template(
         "representative_dashboard.html",
         total_reports=total_reports,
         pending_reports=pending_reports,
-        resolved_reports=resolved_reports
+        resolved_reports=resolved_reports,
+        pending_report_list=pending_report_list
     )
 
 if __name__=="__main__":
