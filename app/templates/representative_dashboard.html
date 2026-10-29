@@ -42,11 +42,25 @@
 
     <div class="pending-reports-section">
 
-        <h2>Pending Reports</h2>
+    <h2>{{ selected_status }} Reports</h2>
 
-        {% if pending_report_list %}
+    <div class="report-filters">
 
-            {% for report in pending_report_list %}
+        <a href="{{ url_for('representative_dashboard', status='Pending') }}"
+           class="filter-btn {% if selected_status == 'Pending' %}active{% endif %}">
+            Pending
+        </a>
+
+        <a href="{{ url_for('representative_dashboard', status='Resolved') }}"
+           class="filter-btn {% if selected_status == 'Resolved' %}active{% endif %}">
+            Resolved
+        </a>
+
+    </div>
+
+        {% if report_list %}
+
+            {% for report in report_list %}
 
                 <div class="pending-report-card">
 
@@ -78,7 +92,7 @@
 
         {% else %}
 
-            <p>No pending reports. Great work!</p>
+            <p>No {{ selected_status|lower }} reports found.</p>
 
         {% endif %}
 

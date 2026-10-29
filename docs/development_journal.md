@@ -1615,3 +1615,131 @@ Day 35 further developed the dedicated Representative side of CivicBridge.
 On Day 34, the Representative Dashboard was introduced with live statistics and a shortcut to view pending reports. Today's work extended that foundation by displaying actual pending civic issues directly on the dashboard.
 
 Representatives can now see the details of unresolved reports, identify their locations, understand the reported problems, and navigate to the existing issue management page when action is required.
+
+
+# 🌉 CivicBridge Development Journal – Day 36
+
+**Date:** 29 October 2026
+
+## Objective
+
+Enhance the **Representative Dashboard** by introducing a report status filter that allows Representatives to switch between **Pending** and **Resolved** civic reports without leaving the dashboard.
+
+The objective was to improve report management and make it easier for Representatives to monitor unresolved issues and review completed reports through a dedicated interface.
+
+## Work Completed
+
+- Extended the existing Representative Dashboard functionality.
+- Added status selection to the Flask dashboard route.
+- Implemented support for retrieving Pending and Resolved reports.
+- Added validation to accept only the supported report statuses.
+- Updated the SQL query to retrieve reports according to the selected status.
+- Passed the selected status and filtered report list from Flask to the Jinja2 template.
+- Replaced the pending-only report list variable with a general report list.
+- Added **Pending** and **Resolved** filter buttons to the dashboard.
+- Made the dashboard heading change dynamically according to the selected status.
+- Added conditional styling to highlight the currently selected filter.
+- Updated the empty-state message to match the selected report status.
+- Added CSS styling for the filter buttons.
+- Improved the visual appearance of the filters using spacing, padding, hover effects, and an active state.
+- Tested the filtering functionality and confirmed that switching between Pending and Resolved reports works correctly.
+
+## Representative Dashboard Report Filtering
+
+Previously, the Representative Dashboard displayed pending reports directly below the statistics cards.
+
+Although Representatives could access the Pending Reports list through a navigation link, the dashboard did not provide a way to switch between pending and resolved reports within the same page.
+
+Today's update introduced a **report status filtering system**.
+
+Representatives can now select either:
+
+- **Pending** – Displays reports that are awaiting resolution.
+- **Resolved** – Displays reports that have already been marked as resolved.
+
+The dashboard retrieves and displays the reports according to the selected status.
+
+## Backend Implementation
+
+### Retrieving the Selected Status
+
+The Flask route was updated to read the selected report status from the URL.
+
+```python
+status = request.args.get("status", "Pending")
+If no status is provided in the URL, the dashboard defaults to Pending reports.
+
+Status Validation
+A validation check was introduced to ensure that only the supported statuses are accepted.
+
+if status not in ["Pending", "Resolved"]:
+    status = "Pending"
+
+This ensures that unexpected status values fall back to Pending rather than being used as the selected filter.
+
+UI Improvements
+CSS styling was added to make the filter buttons more consistent and visually clear.
+
+The styling includes:
+- Flexbox layout to position the buttons horizontally.
+- Appropriate spacing between buttons.
+- Padding to make the buttons easier to click.
+- Rounded corners for a cleaner appearance.
+- Hover effects to provide visual feedback.
+- A distinct active state for the currently selected filter.
+The active state is controlled through a Jinja2 conditional expression, which adds the active class to the button matching the selected status.
+
+This allows Representatives to identify the current filter at a glance.
+
+Testing
+Pending Reports Testing
+- Logged in using the Representative account.
+- Opened the Representative Dashboard.
+- Confirmed that Pending reports were displayed by default.
+- Clicked the Pending filter button.
+- Verified that only pending reports were displayed.
+- Confirmed that the Pending button was highlighted as active.
+
+Resolved Reports Testing
+- Clicked the Resolved filter button.
+- Verified that resolved reports were displayed.
+- Confirmed that the dashboard heading changed to Resolved Reports.
+- Verified that the Resolved button was highlighted as active.
+- Switched back to Pending reports and confirmed that the original report list returned.
+
+UI Testing
+- Confirmed that the filter buttons appeared next to each other.
+- Verified that the hover styling worked.
+- Confirmed that the active filter was visually distinguishable.
+- Verified that the existing report cards and dashboard statistics continued to function correctly.
+
+Files Modified
+- app.py
+- templates/representative_dashboard.html
+- static/style.css
+
+Technical Concepts Learned
+- Reading query parameters from a URL using Flask's request.args.
+- Providing default values for optional URL parameters.
+- Validating user-selected values before using them in application logic.
+- Retrieving database records dynamically based on a selected filter.
+- Using parameterized SQL queries.
+- Passing filtered data from Flask routes to Jinja2 templates.
+- Reusing a template structure to display different groups of records.
+- Dynamically updating headings according to the selected status.
+- Applying conditional CSS classes using Jinja2.
+- Creating interactive navigation through URL query parameters.
+- Styling active filter buttons using CSS.
+- Improving the usability of a database-driven dashboard.
+
+Reflection
+
+Day 36 improved the Representative Dashboard by introducing status-based report filtering.
+
+On Day 35, the dashboard was enhanced to display actual pending civic reports as individual cards. Today's work builds on that functionality by allowing Representatives to switch between Pending and Resolved reports without navigating away from the dashboard.
+
+The filtering system connects the URL, Flask backend, SQLite database, and Jinja2 frontend. Representatives select a status, Flask validates the selection, the database retrieves the matching reports, and the template displays the results dynamically.
+
+The interface also provides visual feedback by highlighting the active filter and updating the report section heading. This makes the dashboard easier to understand and use.
+
+The existing authentication and authorization checks remain intact, ensuring that the dashboard continues to be restricted to Representatives.
